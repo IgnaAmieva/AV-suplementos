@@ -3,7 +3,16 @@
     "allow": [
       "Bash(npx next:*)",
       "Bash(npx tsc:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv \"Creatina 150 gr.webp\" \"creatinas/crea-150-star.webp\")",
+      "Bash(mv \"Creatina 300 gr pote.webp\" \"creatinas/crea-300-pote-star.webp\")",
+      "Bash(mv \"Creatina 500gr.jpg.jpeg\" \"creatinas/crea-500-star.jpeg\")",
+      "Bash(mv \"Creatina 1 kg.jpeg\" \"creatinas/crea-1kg-star.jpeg\")",
+      "Bash(mv \"Creatina 300 gr optimun nutrition.webp\" \"creatinas/crea-300-optimun.webp\")",
+      "Bash(ls \"C:/AV-suplementos/don-vicario/public/images/logo\"*)",
+      "Bash(ls \"C:/AV-suplementos/don-vicario/public/images/\"*.jpeg)",
+      "Bash(ls \"C:/AV-suplementos/don-vicario/public/images/\"*.png)"
     ]
   }
 }

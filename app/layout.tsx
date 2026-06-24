@@ -1,22 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Raleway } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/CartContext";
 import { Analytics } from "@vercel/analytics/next";
 
-const playfair = Playfair_Display({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const raleway = Raleway({
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -27,21 +18,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://donvicario.vercel.app"),
-  title: "Don Vicario — Edición Limitada",
+  metadataBase: new URL("https://avsuplementos.vercel.app"),
+  title: "A&V Suplementos — Tu mejor versión empieza acá",
   description:
-    "Vino Malbec de edición limitada del Valle de Tunuyán, Mendoza. Producción artesanal argentina de alta gama.",
+    "Suplementos deportivos originales: creatinas, proteínas, pre-entrenos y más. Envíos a todo el país. Asesoramiento personalizado.",
   icons: {
-    icon: "/images/Huella_DonVicario.png",
-    apple: "/images/Huella_DonVicario.png",
+    icon: "/images/NDSocial/logoAV.jpeg",
+    apple: "/images/NDSocial/logoAV.jpeg",
   },
   openGraph: {
-    title: "Don Vicario — Edición Limitada",
+    title: "A&V Suplementos",
     description:
-      "Malbec Edición Limitada. Valle de Tunuyán, Mendoza, Argentina.",
-    images: ["/images/foto-vino.jpeg"],
+      "Suplementos deportivos originales. Creatinas, proteínas, pre-entrenos y más.",
+    images: ["/images/NDSocial/logoAV.jpeg"],
     url: "/",
-    siteName: "Don Vicario",
+    siteName: "A&V Suplementos",
     locale: "es_AR",
     type: "website",
   },
@@ -53,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${playfair.variable} ${raleway.variable}`}>
+    <html lang="es" className={poppins.variable}>
       <body>
         <a href="#main-content" className="skip-link">
           Saltar al contenido
@@ -61,7 +52,6 @@ export default function RootLayout({
         <CartProvider>
           <Navbar />
           <main id="main-content">{children}</main>
-          <Footer />
         </CartProvider>
         <Analytics />
       </body>
