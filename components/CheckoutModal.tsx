@@ -12,6 +12,7 @@ import {
   Send,
   Copy,
   Check,
+  AlertTriangle,
 } from "lucide-react";
 import { useCart } from "./CartContext";
 
@@ -414,6 +415,15 @@ export default function CheckoutModal({
                     <p className="text-brand-silver">
                       <span className="text-brand-silver-dark">Dirección:</span>{" "}
                       {form.direccion}, {form.localidad}
+                    </p>
+                  </div>
+
+                  {/* Stock warning */}
+                  <div className="bg-brand-gold/15 border border-brand-gold/40 rounded-xl p-4 mb-4 flex gap-3 items-start">
+                    <AlertTriangle size={20} className="text-brand-gold shrink-0 mt-0.5" />
+                    <p className="text-brand-light text-sm leading-relaxed">
+                      <span className="font-bold text-brand-gold">Consultá el stock antes de pagar.</span>{" "}
+                      Escribinos por WhatsApp para confirmar la disponibilidad del producto antes de realizar la transferencia.
                     </p>
                   </div>
 
