@@ -94,7 +94,7 @@ export default function Contacto() {
               <MapPin size={24} className="text-brand-gold mx-auto mb-3" />
               <p className="text-brand-light font-bold text-sm mb-1">Ubicación</p>
               <p className="text-brand-silver-dark text-sm">
-                San Rafael, Mendoza
+                Tunuyán, Mendoza
               </p>
             </div>
           </FadeIn>

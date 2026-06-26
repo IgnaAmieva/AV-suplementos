@@ -12,7 +12,17 @@
       "Bash(mv \"Creatina 300 gr optimun nutrition.webp\" \"creatinas/crea-300-optimun.webp\")",
       "Bash(ls \"C:/AV-suplementos/don-vicario/public/images/logo\"*)",
       "Bash(ls \"C:/AV-suplementos/don-vicario/public/images/\"*.jpeg)",
-      "Bash(ls \"C:/AV-suplementos/don-vicario/public/images/\"*.png)"
+      "Bash(ls \"C:/AV-suplementos/don-vicario/public/images/\"*.png)",
+      "Bash(grep -v \"^\\\\\\\\.\")",
+      "Bash(grep -v \"^creatinas$\")",
+      "Bash(grep -v \"^proteinas$\")",
+      "Bash(grep -v \"^preentreno$\")",
+      "Bash(grep -v \"^colageno$\")",
+      "Bash(grep -v \"^aminoacidos$\")",
+      "Bash(grep -v \"^shakers$\")",
+      "Bash(grep -v \"^hidratantes$\")",
+      "Bash(grep -v \"^NDSocial$\")",
+      "Bash(mv:*)"
     ]
   }
 }
