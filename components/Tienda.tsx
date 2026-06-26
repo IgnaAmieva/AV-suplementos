@@ -41,12 +41,18 @@ function ProductCard({
 }) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
+  const [selectedSabor, setSelectedSabor] = useState("");
+
+  const hasSabores = producto.sabores && producto.sabores.length > 0;
+  const needsSabor = hasSabores && !selectedSabor;
 
   const handleAdd = () => {
+    if (needsSabor) return;
     addItem({
       name: producto.nombre,
       option: producto.id,
       price: producto.precio,
+      sabor: selectedSabor || undefined,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
@@ -83,18 +89,40 @@ function ProductCard({
         <p className="text-brand-silver-dark text-xs uppercase tracking-wider mb-1">
           {producto.marca}
         </p>
-        <h3 className="text-brand-light font-bold text-sm lg:text-base mb-3 leading-snug min-h-[2.5rem]">
+        <h3 className="text-brand-light font-bold text-sm lg:text-base mb-2 leading-snug min-h-[2.5rem]">
           {producto.nombre}
         </h3>
+
+        {/* Flavor selector */}
+        {hasSabores && (
+          <select
+            value={selectedSabor}
+            onChange={(e) => setSelectedSabor(e.target.value)}
+            className="w-full mb-3 px-3 py-2 rounded-lg bg-brand-black border border-brand-gold/30 text-brand-light text-sm focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold/50 appearance-none cursor-pointer"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C9A227' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "right 0.75rem center",
+            }}
+          >
+            <option value="" className="bg-brand-dark">Elegí un sabor</option>
+            {producto.sabores!.map((s) => (
+              <option key={s} value={s} className="bg-brand-dark">{s}</option>
+            ))}
+          </select>
+        )}
+
         <p className="text-brand-gold font-extrabold text-xl lg:text-2xl mb-4">
           ${producto.precio.toLocaleString("es-AR")}
         </p>
         <button
           onClick={handleAdd}
-          disabled={added}
+          disabled={added || needsSabor}
           className={`w-full flex items-center justify-center gap-2 font-bold py-3 rounded-full transition-all duration-300 text-sm ${
             added
               ? "bg-green-600 text-white"
+              : needsSabor
+              ? "bg-brand-silver-dark/30 text-brand-silver-dark cursor-not-allowed"
               : "bg-brand-gold hover:bg-brand-gold-light text-brand-black"
           }`}
         >
@@ -103,6 +131,8 @@ function ProductCard({
               <Check size={16} />
               Agregado
             </>
+          ) : needsSabor ? (
+            "Seleccioná un sabor"
           ) : (
             <>
               <ShoppingCart size={16} />

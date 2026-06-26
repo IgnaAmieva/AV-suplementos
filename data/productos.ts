@@ -5,6 +5,7 @@ export interface Producto {
   categoria: string;
   image: string;
   marca: string;
+  sabores?: string[];
 }
 
 export interface Categoria {
@@ -81,6 +82,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/whey-doypack-2lb-star.jpeg",
     marca: "Star Nutrition",
+    sabores: ["Cookies and Cream", "Chocolate", "Vainilla", "Frutilla"],
   },
   {
     id: "whey-platinum-3kg",
@@ -89,6 +91,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/whey-platinum-3kg.jpeg",
     marca: "Star Nutrition",
+    sabores: ["Cookies and Cream", "Chocolate", "Vainilla", "Frutilla"],
   },
   {
     id: "syntha6-14lbs-bsn",
@@ -97,6 +100,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/syntha6-14lbs-bsn.webp",
     marca: "BSN",
+    sabores: ["Chocolate", "Vainilla"],
   },
   {
     id: "whey-syntha6-edge-23lbs",
@@ -105,6 +109,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/whey-syntha6-edge-23lbs.webp",
     marca: "BSN",
+    sabores: ["Chocolate", "Vainilla"],
   },
   {
     id: "whey-syntha6-5lb-bsn",
@@ -113,6 +118,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/whey-syntha6-5lb-bsn.webp",
     marca: "BSN",
+    sabores: ["Chocolate", "Vainilla"],
   },
 
   // ── Pre-Entreno ──

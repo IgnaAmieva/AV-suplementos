@@ -7,6 +7,7 @@ export interface CartItem {
   option: string;
   price: number;
   quantity: number;
+  sabor?: string;
 }
 
 interface CartContextType {
@@ -17,6 +18,7 @@ interface CartContextType {
   addItem: (item: Omit<CartItem, "quantity">) => void;
   removeItem: (option: string) => void;
   updateQuantity: (option: string, quantity: number) => void;
+  clearCart: () => void;
   total: number;
   itemCount: number;
 }
@@ -31,38 +33,47 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const closeCart = useCallback(() => setIsOpen(false), []);
 
   const addItem = useCallback((item: Omit<CartItem, "quantity">) => {
+    const key = item.sabor ? `${item.option}::${item.sabor}` : item.option;
     setItems((prev) => {
-      const existing = prev.find((i) => i.option === item.option);
+      const existing = prev.find((i) => {
+        const iKey = i.sabor ? `${i.option}::${i.sabor}` : i.option;
+        return iKey === key;
+      });
       if (existing) {
-        return prev.map((i) =>
-          i.option === item.option ? { ...i, quantity: i.quantity + 1 } : i
-        );
+        return prev.map((i) => {
+          const iKey = i.sabor ? `${i.option}::${i.sabor}` : i.option;
+          return iKey === key ? { ...i, quantity: i.quantity + 1 } : i;
+        });
       }
       return [...prev, { ...item, quantity: 1 }];
     });
     setIsOpen(true);
   }, []);
 
+  const getKey = (i: CartItem) => (i.sabor ? `${i.option}::${i.sabor}` : i.option);
+
   const removeItem = useCallback((option: string) => {
-    setItems((prev) => prev.filter((i) => i.option !== option));
+    setItems((prev) => prev.filter((i) => getKey(i) !== option));
   }, []);
 
   const updateQuantity = useCallback((option: string, quantity: number) => {
     if (quantity <= 0) {
-      setItems((prev) => prev.filter((i) => i.option !== option));
+      setItems((prev) => prev.filter((i) => getKey(i) !== option));
       return;
     }
     setItems((prev) =>
-      prev.map((i) => (i.option === option ? { ...i, quantity } : i))
+      prev.map((i) => (getKey(i) === option ? { ...i, quantity } : i))
     );
   }, []);
+
+  const clearCart = useCallback(() => setItems([]), []);
 
   const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
   const itemCount = items.reduce((sum, i) => sum + i.quantity, 0);
 
   return (
     <CartContext.Provider
-      value={{ items, isOpen, openCart, closeCart, addItem, removeItem, updateQuantity, total, itemCount }}
+      value={{ items, isOpen, openCart, closeCart, addItem, removeItem, updateQuantity, clearCart, total, itemCount }}
     >
       {children}
     </CartContext.Provider>
