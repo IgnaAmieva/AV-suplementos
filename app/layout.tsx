@@ -47,7 +47,7 @@ export default function RootLayout({
     <html lang="es" className={poppins.variable}>
       <body>
         <a href="#main-content" className="skip-link">
-          Saltar al contenido
+          saltar al contenido
         </a>
         <CartProvider>
           <Navbar />
