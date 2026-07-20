@@ -22,7 +22,10 @@
       "Bash(grep -v \"^shakers$\")",
       "Bash(grep -v \"^hidratantes$\")",
       "Bash(grep -v \"^NDSocial$\")",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(mv \"Proteina + creatina 150 gr.webp\" proteina-crea-150.webp)",
+      "Bash(mv \"Proteina + creatina 300gr.webp\" proteina-crea-300.webp)",
+      "Bash(mv \"Proteina 1 kg + creatina 1 kg.webp\" proteina-crea-1kg.webp)"
     ]
   }
 }

@@ -9,6 +9,7 @@ import CartSidebar from "./CartSidebar";
 const NAV_LINKS = [
   { href: "#productos", label: "Productos" },
   { href: "#nosotros", label: "Nosotros" },
+  { href: "#combos", label: "Combos" },
   { href: "#tienda", label: "Tienda" },
   { href: "#galeria", label: "Galería" },
   { href: "#contacto", label: "Contacto" },

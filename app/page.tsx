@@ -4,6 +4,7 @@ import { useState } from "react";
 import Hero from "@/components/Hero";
 import Productos from "@/components/Productos";
 import Nosotros from "@/components/Nosotros";
+import Combos from "@/components/Combos";
 import Tienda from "@/components/Tienda";
 import Galeria from "@/components/Galeria";
 import NDSocial from "@/components/NDSocial";
@@ -19,6 +20,7 @@ export default function Home() {
       <Hero />
       <Productos onSelectCategoria={setCategoriaActiva} />
       <Nosotros />
+      <Combos />
       <Tienda
         categoriaActiva={categoriaActiva}
         onCategoriaChange={setCategoriaActiva}
