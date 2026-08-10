@@ -22,6 +22,7 @@ export const categorias: Categoria[] = [
   { slug: "shakers", nombre: "Shakers" },
   { slug: "hidratantes", nombre: "Hidratantes" },
   { slug: "combos", nombre: "Combos" },
+  { slug: "gel", nombre: "Gel" },
 ];
 
 export const productos: Producto[] = [
@@ -69,7 +70,7 @@ export const productos: Producto[] = [
   {
     id: "crea-309-bsn",
     nombre: "Creatina BSN 309g",
-    precio: 36000,
+    precio: 37500,
     categoria: "creatinas",
     image: "/images/creatinas/crea-309-bsn.webp",
     marca: "BSN",
@@ -78,8 +79,8 @@ export const productos: Producto[] = [
   // ── Proteínas ──
   {
     id: "whey-doypack-2lb-star",
-    nombre: "Whey Protein Doypack 2 lbs",
-    precio: 66000,
+    nombre: "Proteína Star 1kg Star Nutrition",
+    precio: 69000,
     categoria: "proteinas",
     image: "/images/proteinas/whey-doypack-2lb-star.jpeg",
     marca: "Star Nutrition",
@@ -88,7 +89,7 @@ export const productos: Producto[] = [
   {
     id: "whey-platinum-3kg",
     nombre: "Whey Protein Platinum 3kg",
-    precio: 217000,
+    precio: 247000,
     categoria: "proteinas",
     image: "/images/proteinas/whey-platinum-3kg.jpeg",
     marca: "Star Nutrition",
@@ -97,7 +98,7 @@ export const productos: Producto[] = [
   {
     id: "syntha6-14lbs-bsn",
     nombre: "Syntha-6 1,4 lbs",
-    precio: 77500,
+    precio: 92500,
     categoria: "proteinas",
     image: "/images/proteinas/syntha6-14lbs-bsn.webp",
     marca: "BSN",
@@ -106,7 +107,7 @@ export const productos: Producto[] = [
   {
     id: "whey-syntha6-edge-23lbs",
     nombre: "Syntha-6 Edge 2,3 lbs",
-    precio: 129500,
+    precio: 153000,
     categoria: "proteinas",
     image: "/images/proteinas/whey-syntha6-edge-23lbs.webp",
     marca: "BSN",
@@ -115,7 +116,7 @@ export const productos: Producto[] = [
   {
     id: "whey-syntha6-5lb-bsn",
     nombre: "Syntha-6 5 lbs",
-    precio: 157000,
+    precio: 263000,
     categoria: "proteinas",
     image: "/images/proteinas/whey-syntha6-5lb-bsn.webp",
     marca: "BSN",
@@ -160,7 +161,7 @@ export const productos: Producto[] = [
   {
     id: "colageno-210g-frutos-rojos",
     nombre: "Colágeno Hidrolizado 210g Frutos Rojos",
-    precio: 17000,
+    precio: 18500,
     categoria: "colageno",
     image: "/images/colageno/colageno-210g-frutos-rojos.png",
     marca: "Star Nutrition",
@@ -168,7 +169,7 @@ export const productos: Producto[] = [
   {
     id: "colageno-210g-limon",
     nombre: "Colágeno Hidrolizado 210g Limón",
-    precio: 17000,
+    precio: 18500,
     categoria: "colageno",
     image: "/images/colageno/colageno-210g-limon.webp",
     marca: "Star Nutrition",
@@ -284,6 +285,26 @@ export const productos: Producto[] = [
     categoria: "combos",
     image: "/images/combos/proteina-crea-1kg.webp",
     marca: "Star Nutrition",
+  },
+
+  // ── Gel ──
+  {
+    id: "gel-mervick-suelto",
+    nombre: "Gel Race Mervick Repositor Energético Running Gym",
+    precio: 2500,
+    categoria: "gel",
+    image: "/images/varios/gel-mervick-suelto.webp",
+    marca: "Mervick",
+    sabores: ["Frutos Rojos", "Limón"],
+  },
+  {
+    id: "gel-mervick-pack-12",
+    nombre: "Gel Race Mervick Repositor Energético Running Gym Pack x12",
+    precio: 27600,
+    categoria: "gel",
+    image: "/images/varios/gel-mervick-pack-12.webp",
+    marca: "Mervick",
+    sabores: ["Frutos Rojos", "Limón"],
   },
 ];
 

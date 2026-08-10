@@ -11,7 +11,7 @@ import {
   CupSoda,
   Droplets,
 } from "lucide-react";
-import { categorias } from "@/data/productos";
+import { categorias as allCategorias } from "@/data/productos";
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   creatinas: <FlaskConical size={26} strokeWidth={2.5} />,
@@ -21,7 +21,10 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   aminoacidos: <Atom size={26} strokeWidth={2.5} />,
   shakers: <CupSoda size={26} strokeWidth={2.5} />,
   hidratantes: <Droplets size={26} strokeWidth={2.5} />,
+  gel: <Zap size={26} strokeWidth={2.5} />,
 };
+
+const categorias = allCategorias.filter((c) => c.slug !== "combos");
 
 function FadeIn({
   children,

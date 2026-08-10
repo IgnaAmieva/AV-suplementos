@@ -46,9 +46,9 @@ export default function Navbar() {
                 className="object-cover"
               />
             </div>
-            <span className="text-lg font-bold tracking-wide">
+            <span className="hidden md:block text-lg font-bold tracking-wide">
               <span className="text-gradient-gold">A&V</span>{" "}
-              <span className="text-brand-light text-sm font-semibold hidden sm:inline">SUPLEMENTOS</span>
+              <span className="text-brand-light text-sm font-semibold">SUPLEMENTOS</span>
             </span>
           </a>
 

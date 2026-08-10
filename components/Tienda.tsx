@@ -66,7 +66,7 @@ function ProductCard({
         onClick={() => {
           if (producto.image) onImageClick(producto.image, producto.nombre);
         }}
-        className="relative aspect-square w-full bg-brand-light/5 overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-inset"
+        className="relative aspect-square w-full mx-auto bg-brand-light/5 overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-inset"
         aria-label={`Ver imagen de ${producto.nombre}`}
       >
         {producto.image ? (
@@ -118,9 +118,9 @@ function ProductCard({
         <button
           onClick={handleAdd}
           disabled={added || needsSabor}
-          className={`w-full flex items-center justify-center gap-2 font-bold py-3 rounded-full transition-all duration-300 text-sm ${
+          className={`w-full flex items-center justify-center gap-2 font-semibold py-3 rounded-xl transition-all duration-300 text-sm ${
             added
-              ? "bg-green-600 text-white"
+              ? "bg-brand-silver/20 text-brand-light"
               : needsSabor
               ? "bg-brand-silver-dark/30 text-brand-silver-dark cursor-not-allowed"
               : "bg-brand-gold hover:bg-brand-gold-light text-brand-black"
@@ -128,14 +128,14 @@ function ProductCard({
         >
           {added ? (
             <>
-              <Check size={16} />
-              Agregado
+              <Check size={18} />
+              Agregado ✓
             </>
           ) : needsSabor ? (
             "Seleccioná un sabor"
           ) : (
             <>
-              <ShoppingCart size={16} />
+              <ShoppingCart size={18} />
               Agregar al carrito
             </>
           )}

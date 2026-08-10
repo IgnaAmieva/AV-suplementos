@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-brand-black overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-brand-black overflow-hidden pt-24 md:pt-32 pb-16 md:pb-24">
       {/* Background texture */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(201,162,39,0.08)_0%,_transparent_60%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(201,162,39,0.05)_0%,_transparent_50%)]" />
@@ -21,7 +21,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           {/* Logo */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-8 mt-0">
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden border-2 border-brand-gold/30 shadow-[0_0_40px_rgba(201,162,39,0.15)]">
               <Image
                 src="/images/NDSocial/logoAV.jpeg"
