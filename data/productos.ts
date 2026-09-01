@@ -23,6 +23,7 @@ export const categorias: Categoria[] = [
   { slug: "hidratantes", nombre: "Hidratantes" },
   { slug: "combos", nombre: "Combos" },
   { slug: "gel", nombre: "Gel" },
+  { slug: "pancakes-keto", nombre: "Pancakes & Keto" },
 ];
 
 export const productos: Producto[] = [
@@ -127,7 +128,7 @@ export const productos: Producto[] = [
   {
     id: "pump-3d-ripped-315g",
     nombre: "Pump 3D Ripped 315g",
-    precio: 38500,
+    precio: 40500,
     categoria: "preentreno",
     image: "/images/preentreno/pump-3d-ripped-315g.webp",
     marca: "Star Nutrition",
@@ -135,7 +136,7 @@ export const productos: Producto[] = [
   {
     id: "tnt-dynamite-240g",
     nombre: "TNT Dynamite 240g",
-    precio: 22500,
+    precio: 24000,
     categoria: "preentreno",
     image: "/images/preentreno/tnt-dynamite-240g.webp",
     marca: "Star Nutrition",
@@ -143,7 +144,7 @@ export const productos: Producto[] = [
   {
     id: "pump-v8-285g",
     nombre: "Pump V8 285g",
-    precio: 30000,
+    precio: 32000,
     categoria: "preentreno",
     image: "/images/preentreno/pump-v8-285g.webp",
     marca: "Star Nutrition",
@@ -151,7 +152,7 @@ export const productos: Producto[] = [
   {
     id: "cafeina-200mg-30caps",
     nombre: "Cafeína 200mg x30 Caps",
-    precio: 8500,
+    precio: 9500,
     categoria: "preentreno",
     image: "/images/preentreno/cafeina-200mg-30caps.webp",
     marca: "Star Nutrition",
@@ -161,7 +162,7 @@ export const productos: Producto[] = [
   {
     id: "colageno-210g-frutos-rojos",
     nombre: "Colágeno Hidrolizado 210g Frutos Rojos",
-    precio: 18500,
+    precio: 22000,
     categoria: "colageno",
     image: "/images/colageno/colageno-210g-frutos-rojos.png",
     marca: "Star Nutrition",
@@ -169,7 +170,7 @@ export const productos: Producto[] = [
   {
     id: "colageno-210g-limon",
     nombre: "Colágeno Hidrolizado 210g Limón",
-    precio: 18500,
+    precio: 22000,
     categoria: "colageno",
     image: "/images/colageno/colageno-210g-limon.webp",
     marca: "Star Nutrition",
@@ -177,7 +178,7 @@ export const productos: Producto[] = [
   {
     id: "resveratrol-500-60caps",
     nombre: "Resveratrol 500 x60 Caps",
-    precio: 20000,
+    precio: 21000,
     categoria: "colageno",
     image: "/images/colageno/resveratrol-500-60caps.webp",
     marca: "Star Nutrition",
@@ -187,7 +188,7 @@ export const productos: Producto[] = [
   {
     id: "amino-energy-270g-optimun",
     nombre: "Amino Energy 270g",
-    precio: 62000,
+    precio: 78000,
     categoria: "aminoacidos",
     image: "/images/aminoacidos/amino-energy-270g-optimun.png",
     marca: "Optimum Nutrition",
@@ -203,7 +204,7 @@ export const productos: Producto[] = [
   {
     id: "eaa-essential-360g-limon",
     nombre: "EAA Essential Aminos 360g Limón",
-    precio: 39000,
+    precio: 42000,
     categoria: "aminoacidos",
     image: "/images/aminoacidos/eaa-essential-360g-limon.png",
     marca: "Star Nutrition",
@@ -211,7 +212,7 @@ export const productos: Producto[] = [
   {
     id: "l-glutamina-300g",
     nombre: "L-Glutamina 300g",
-    precio: 32500,
+    precio: 33000,
     categoria: "aminoacidos",
     image: "/images/aminoacidos/l-glutamina-300g.webp",
     marca: "Star Nutrition",
@@ -219,7 +220,7 @@ export const productos: Producto[] = [
   {
     id: "beta-alanina-300g",
     nombre: "Beta Alanina 300g",
-    precio: 27000,
+    precio: 31000,
     categoria: "aminoacidos",
     image: "/images/aminoacidos/beta-alanina-300g.webp",
     marca: "Star Nutrition",
@@ -227,7 +228,7 @@ export const productos: Producto[] = [
   {
     id: "citrulina-malate-300g",
     nombre: "Citrulina Malate 300g",
-    precio: 57000,
+    precio: 63000,
     categoria: "aminoacidos",
     image: "/images/aminoacidos/citrulina-malate-300g.webp",
     marca: "Star Nutrition",
@@ -305,6 +306,96 @@ export const productos: Producto[] = [
     image: "/images/varios/gel-mervick-pack-12.webp",
     marca: "Mervick",
     sabores: ["Frutos Rojos", "Limón"],
+  },
+
+  // ── Pancakes & Keto ──
+  {
+    id: "keto-cupcakes-chocolate",
+    nombre: "Keto Cupcakes Chocolate Granger",
+    precio: 14500,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/keto-cupcakes-chocolate.png",
+    marca: "Granger",
+  },
+  {
+    id: "cupcakes-proteicos-vainilla-limon",
+    nombre: "Cupcakes Proteicos Vainilla Limón con Chips Granger",
+    precio: 16000,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/cupcakes-proteicos-vainilla-limon.png",
+    marca: "Granger",
+  },
+  {
+    id: "keto-cupcakes-vainilla",
+    nombre: "Keto Cupcakes Vainilla Granger",
+    precio: 14500,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/keto-cupcakes-vainilla.png",
+    marca: "Granger",
+  },
+  {
+    id: "keto-pancakes-chocolate",
+    nombre: "Keto Pancakes Chocolate 200g Granger",
+    precio: 14500,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/keto-pancakes-chocolate.webp",
+    marca: "Granger",
+  },
+  {
+    id: "keto-pancakes-vainilla",
+    nombre: "Keto Pancakes Vainilla 200g Granger",
+    precio: 14500,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/keto-pancakes-vainilla.png",
+    marca: "Granger",
+  },
+  {
+    id: "pancakes-proteicos-jalapeno-limon",
+    nombre: "Pancakes Proteicos 300g Jalapeño y Limón Granger",
+    precio: 16000,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/pancakes-proteicos-jalapeno-limon.png",
+    marca: "Granger",
+  },
+  {
+    id: "cupcakes-proteicos-360g",
+    nombre: "Cupcakes Proteicos 360g Granger",
+    precio: 16000,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/cupcakes-proteicos-360g.png",
+    marca: "Granger",
+  },
+  {
+    id: "pancakes-proteicos-chocolate-vainilla",
+    nombre: "Pancakes Proteicos 400g Chocolate y Vainilla Granger",
+    precio: 16000,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/pancakes-proteicos-chocolate-vainilla.png",
+    marca: "Granger",
+  },
+  {
+    id: "pancakes-proteicos-caprese",
+    nombre: "Pancakes Proteicos Caprese 300g Granger",
+    precio: 16000,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/pancakes-proteicos-caprese.png",
+    marca: "Granger",
+  },
+  {
+    id: "pancakes-proteicos-queso",
+    nombre: "Pancakes Proteicos Salados Sabor Queso Granger",
+    precio: 16000,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/pancakes-proteicos-queso.webp",
+    marca: "Granger",
+  },
+  {
+    id: "pancakes-proteicos-dulce-leche",
+    nombre: "Pancakes Proteicos 300g Dulce de Leche Granger",
+    precio: 16000,
+    categoria: "pancakes-keto",
+    image: "/images/pancakes-keto/pancakes-proteicos-dulce-leche.png",
+    marca: "Granger",
   },
 ];
 
