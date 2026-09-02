@@ -56,14 +56,14 @@ export default function Nosotros() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 items-stretch">
           {FEATURES.map((feat, i) => (
-            <FadeIn key={feat.title} delay={i * 0.08}>
-              <div className="bg-brand-black/60 border border-brand-gold/10 rounded-2xl p-5 flex flex-col items-center text-center hover:border-brand-gold/30 transition-all duration-300">
+            <FadeIn key={feat.title} delay={i * 0.08} className="flex">
+              <div className="flex flex-col h-full bg-brand-black/60 border border-brand-gold/10 rounded-2xl p-5 items-center text-center hover:border-brand-gold/30 transition-all duration-300">
                 <div className="w-12 h-12 rounded-full bg-brand-gold flex items-center justify-center text-brand-black mb-3 shadow-[0_0_16px_rgba(201,162,39,0.3)]">
                   {feat.icon}
                 </div>
-                <h3 className="text-brand-light font-bold text-sm">
+                <h3 className="text-brand-light font-bold text-sm min-h-[2rem]">
                   {feat.title}
                 </h3>
               </div>
