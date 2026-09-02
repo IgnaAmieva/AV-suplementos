@@ -372,6 +372,7 @@ export const productos: Producto[] = [
     categoria: "pancakes-keto",
     image: "/images/pancakes-keto/pancakes-proteicos-chocolate-vainilla.png",
     marca: "Granger",
+    sabores: ["Chocolate", "Vainilla"],
   },
   {
     id: "pancakes-proteicos-caprese",

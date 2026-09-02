@@ -59,14 +59,14 @@ function ProductCard({
   };
 
   return (
-    <div className="group bg-brand-dark border border-brand-gold/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-gold/30 hover:shadow-[0_0_30px_rgba(201,162,39,0.08)]">
+    <div className="group flex flex-col h-full bg-brand-dark border border-brand-gold/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-gold/30 hover:shadow-[0_0_30px_rgba(201,162,39,0.08)]">
       {/* Image — clickable for lightbox */}
       <button
         type="button"
         onClick={() => {
           if (producto.image) onImageClick(producto.image, producto.nombre);
         }}
-        className="relative aspect-square w-full mx-auto bg-brand-light/5 overflow-hidden cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-inset"
+        className="w-full h-48 relative overflow-hidden bg-brand-light/5 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-inset"
         aria-label={`Ver imagen de ${producto.nombre}`}
       >
         {producto.image ? (
@@ -85,11 +85,11 @@ function ProductCard({
       </button>
 
       {/* Info */}
-      <div className="p-4 lg:p-5">
+      <div className="flex flex-col flex-1 p-4">
         <p className="text-brand-silver-dark text-xs uppercase tracking-wider mb-1">
           {producto.marca}
         </p>
-        <h3 className="text-brand-light font-bold text-sm lg:text-base mb-2 leading-snug min-h-[2.5rem]">
+        <h3 className="font-bold text-brand-light text-sm line-clamp-2 min-h-[2.5rem] leading-snug mb-2">
           {producto.nombre}
         </h3>
 
@@ -112,13 +112,13 @@ function ProductCard({
           </select>
         )}
 
-        <p className="text-brand-gold font-extrabold text-xl lg:text-2xl mb-4">
+        <p className="text-brand-gold font-extrabold text-xl lg:text-2xl mt-2">
           ${producto.precio.toLocaleString("es-AR")}
         </p>
         <button
           onClick={handleAdd}
           disabled={added || needsSabor}
-          className={`w-full flex items-center justify-center gap-2 font-semibold py-3 rounded-xl transition-all duration-300 text-sm ${
+          className={`mt-auto w-full flex items-center justify-center gap-2 font-semibold py-3 rounded-xl transition-all duration-300 text-sm ${
             added
               ? "bg-brand-silver/20 text-brand-light"
               : needsSabor
@@ -210,10 +210,10 @@ export default function Tienda({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-6 items-stretch"
           >
             {productos.map((p, i) => (
-              <FadeIn key={p.id} delay={i * 0.05}>
+              <FadeIn key={p.id} delay={i * 0.05} className="flex">
                 <ProductCard
                   producto={p}
                   onImageClick={(src, alt) => setLightbox({ src, alt })}
