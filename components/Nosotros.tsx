@@ -37,10 +37,10 @@ const FEATURES = [
 
 export default function Nosotros() {
   return (
-    <section id="nosotros" className="py-16 lg:py-20 bg-brand-dark">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="nosotros" className="py-20 bg-brand-dark">
+      <div className="text-center max-w-4xl mx-auto px-6">
         <FadeIn>
-          <div className="text-center mb-10">
+          <div className="mb-10">
             <p className="text-brand-gold text-sm tracking-[0.2em] uppercase font-semibold mb-3">
               Sobre nosotros
             </p>
@@ -56,14 +56,14 @@ export default function Nosotros() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-2 gap-4 items-stretch">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {FEATURES.map((feat, i) => (
             <FadeIn key={feat.title} delay={i * 0.08} className="flex">
-              <div className="flex flex-col h-full bg-brand-black/60 border border-brand-gold/10 rounded-2xl p-5 items-center text-center hover:border-brand-gold/30 transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-brand-gold flex items-center justify-center text-brand-black mb-3 shadow-[0_0_16px_rgba(201,162,39,0.3)]">
-                  {feat.icon}
+              <div className="flex flex-col items-center text-center p-6 bg-brand-dark rounded-2xl border border-white/10 h-full min-h-[140px] justify-center">
+                <div className="w-14 h-14 rounded-full bg-brand-gold flex items-center justify-center mx-auto mb-3">
+                  <span className="text-black">{feat.icon}</span>
                 </div>
-                <h3 className="text-brand-light font-bold text-sm min-h-[2rem]">
+                <h3 className="font-bold text-brand-light text-sm mt-2">
                   {feat.title}
                 </h3>
               </div>
