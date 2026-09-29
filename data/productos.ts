@@ -41,7 +41,7 @@ export const productos: Producto[] = [
     nombre: "Creatina 300g Pote",
     precio: 26000,
     categoria: "creatinas",
-    image: "/images/creatinas/crea-300-pote-star.webp",
+    image: "/images/creatinas/crea-300-pote-star.png",
     marca: "Star Nutrition",
   },
   {
@@ -71,7 +71,7 @@ export const productos: Producto[] = [
   {
     id: "crea-309-bsn",
     nombre: "Creatina BSN 309g",
-    precio: 37500,
+    precio: 39000,
     categoria: "creatinas",
     image: "/images/creatinas/crea-309-bsn.webp",
     marca: "BSN",
@@ -81,7 +81,7 @@ export const productos: Producto[] = [
   {
     id: "whey-doypack-2lb-star",
     nombre: "Proteína Star 1kg Star Nutrition",
-    precio: 69000,
+    precio: 87500,
     categoria: "proteinas",
     image: "/images/proteinas/whey-doypack-2lb-star.jpeg",
     marca: "Star Nutrition",
@@ -90,7 +90,7 @@ export const productos: Producto[] = [
   {
     id: "whey-platinum-3kg",
     nombre: "Whey Protein Platinum 3kg",
-    precio: 247000,
+    precio: 291000,
     categoria: "proteinas",
     image: "/images/proteinas/whey-platinum-3kg.jpeg",
     marca: "Star Nutrition",
@@ -266,7 +266,7 @@ export const productos: Producto[] = [
   {
     id: "combo-proteina-crea-150",
     nombre: "Proteína Star 1kg + Creatina Star 150gr",
-    precio: 77000,
+    precio: 100000,
     categoria: "combos",
     image: "/images/combos/proteina-crea-150.webp",
     marca: "Star Nutrition",
@@ -274,7 +274,7 @@ export const productos: Producto[] = [
   {
     id: "combo-proteina-crea-300",
     nombre: "Proteína Star 1kg + Creatina Star 300gr",
-    precio: 85000,
+    precio: 110000,
     categoria: "combos",
     image: "/images/combos/proteina-crea-300.webp",
     marca: "Star Nutrition",
@@ -282,7 +282,7 @@ export const productos: Producto[] = [
   {
     id: "combo-proteina-crea-1kg",
     nombre: "Proteína Star 1kg + Creatina Star 1kg",
-    precio: 133000,
+    precio: 158000,
     categoria: "combos",
     image: "/images/combos/proteina-crea-1kg.webp",
     marca: "Star Nutrition",
