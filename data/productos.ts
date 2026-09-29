@@ -38,7 +38,7 @@ export const productos: Producto[] = [
   },
   {
     id: "crea-300-pote-star",
-    nombre: "Creatina 300g Pote",
+    nombre: "Creatina 300g Doy Pack",
     precio: 26000,
     categoria: "creatinas",
     image: "/images/creatinas/crea-300-pote-star.png",
