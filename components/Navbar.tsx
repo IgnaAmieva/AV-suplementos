@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "./CartContext";
 import CartSidebar from "./CartSidebar";
@@ -19,6 +20,13 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { itemCount, openCart } = useCart();
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -48,7 +56,9 @@ export default function Navbar() {
             </div>
             <span className="hidden md:block text-lg font-bold tracking-wide">
               <span className="text-gradient-gold">A&V</span>{" "}
-              <span className="text-brand-light text-sm font-semibold">SUPLEMENTOS</span>
+              <span className="text-brand-light text-sm font-semibold">
+                SUPLEMENTOS
+              </span>
             </span>
           </a>
 
@@ -70,36 +80,62 @@ export default function Navbar() {
             >
               <ShoppingBag size={22} />
               {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-brand-gold text-brand-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                <motion.span
+                  key={itemCount}
+                  initial={{ scale: 0.5 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 15,
+                  }}
+                  className="absolute -top-2 -right-2 bg-brand-gold text-brand-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                >
                   {itemCount}
-                </span>
+                </motion.span>
               )}
             </button>
           </div>
 
           {/* Mobile buttons */}
-          <div className="flex md:hidden items-center gap-3">
+          <div className="flex md:hidden items-center gap-1">
             <button
               onClick={openCart}
-              className="relative text-brand-silver/80 hover:text-brand-gold transition-colors"
+              className="relative text-brand-silver/80 hover:text-brand-gold transition-colors p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Abrir carrito"
             >
               <ShoppingBag size={22} />
               {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-brand-gold text-brand-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                <motion.span
+                  key={itemCount}
+                  initial={{ scale: 0.5 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 15,
+                  }}
+                  className="absolute top-0.5 right-0.5 bg-brand-gold text-brand-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                >
                   {itemCount}
-                </span>
+                </motion.span>
               )}
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-brand-silver/80 hover:text-brand-gold transition-colors"
+              className="text-brand-silver/80 hover:text-brand-gold transition-colors p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Menú"
             >
-              {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </nav>
+
+        {/* Scroll progress bar */}
+        <motion.div
+          style={{ scaleX, transformOrigin: "0%" }}
+          className="h-[2px] bg-brand-gold"
+        />
 
         {/* Mobile menu */}
         {mobileOpen && (
@@ -110,7 +146,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-base font-semibold text-brand-silver/80 hover:text-brand-gold transition-colors"
+                  className="text-base font-semibold text-brand-silver/80 hover:text-brand-gold transition-colors py-2 min-h-[44px] flex items-center"
                 >
                   {link.label}
                 </a>

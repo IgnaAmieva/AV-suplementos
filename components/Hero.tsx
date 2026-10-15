@@ -165,6 +165,7 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
+  const [hasTransitioned, setHasTransitioned] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const reducedMotion = useReducedMotion();
   const touchStartX = useRef(0);
@@ -192,6 +193,7 @@ export default function Hero() {
     const id = setInterval(() => {
       setDirection(1);
       setCurrent((c) => (c + 1) % HERO_PRODUCTS.length);
+      setHasTransitioned(true);
     }, INTERVAL);
     return () => clearInterval(id);
   }, [paused, reducedMotion]);
@@ -206,6 +208,7 @@ export default function Hero() {
     (idx: number) => {
       setDirection(idx > current ? 1 : -1);
       setCurrent(idx);
+      setHasTransitioned(true);
     },
     [current]
   );
@@ -216,6 +219,7 @@ export default function Hero() {
   const onTouchEnd = (e: ReactTouchEvent) => {
     const delta = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(delta) < 50) return;
+    setHasTransitioned(true);
     if (delta < 0) {
       setDirection(1);
       setCurrent((c) => (c + 1) % HERO_PRODUCTS.length);
@@ -270,27 +274,33 @@ export default function Hero() {
             onTouchEnd={onTouchEnd}
           >
             {/* Gold glow */}
-            <motion.div
-              key={`glow-m-${current}`}
-              initial={{ opacity: 0.2, scale: 0.5 }}
-              animate={{ opacity: 0.5, scale: 0.6 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="absolute w-[70%] aspect-square rounded-full bg-brand-gold/8 blur-3xl"
-            />
+            <div className="absolute w-[70%] aspect-square rounded-full bg-brand-gold/8 blur-3xl opacity-50" />
 
-            {/* Product image */}
+            {/* Product image — plain render first, AnimatePresence after first transition */}
             <div className="relative w-full max-w-[300px] sm:max-w-[340px] aspect-square">
-              <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                  key={product.id}
-                  custom={direction}
-                  variants={reducedMotion ? undefined : activeVariants}
-                  initial={reducedMotion ? { opacity: 0 } : "enter"}
-                  animate={reducedMotion ? { opacity: 1 } : "center"}
-                  exit={reducedMotion ? { opacity: 0 } : "exit"}
-                  transition={{ duration: reducedMotion ? 0.15 : 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute inset-0"
-                >
+              {hasTransitioned ? (
+                <AnimatePresence initial={false} custom={direction} mode="wait">
+                  <motion.div
+                    key={product.id}
+                    custom={direction}
+                    variants={reducedMotion ? undefined : activeVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: reducedMotion ? 0.15 : 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain drop-shadow-[0_0_30px_rgba(201,162,39,0.12)]"
+                      sizes="340px"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              ) : (
+                <div className="absolute inset-0">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -299,8 +309,8 @@ export default function Hero() {
                     sizes="340px"
                     priority
                   />
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              )}
             </div>
           </div>
 
@@ -309,7 +319,7 @@ export default function Hero() {
             <AnimatePresence mode="wait">
               <motion.button
                 key={`chip-${current}`}
-                initial={{ opacity: 0, y: 6 }}
+                initial={hasTransitioned ? { opacity: 0, y: 6 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.25 }}
@@ -347,12 +357,7 @@ export default function Hero() {
           </div>
 
           {/* 4. Buttons side by side */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
-            className="flex items-center justify-center gap-3"
-          >
+          <div className="flex items-center justify-center gap-3">
             <a
               href="#tienda"
               className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-light text-brand-black font-bold px-7 py-3 rounded-full transition-colors text-sm uppercase tracking-wider font-[family-name:var(--font-display)] min-h-[48px]"
@@ -365,7 +370,7 @@ export default function Hero() {
             >
               Contacto
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
 

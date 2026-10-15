@@ -13,27 +13,18 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-const NAV_LINKS = [
-  { href: "#hero", label: "Inicio" },
-  { href: "#productos", label: "Categorías" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#tienda", label: "Tienda" },
-  { href: "#galeria", label: "Galería" },
-  { href: "#contacto", label: "Contacto" },
-];
-
 export default function Footer() {
   return (
     <footer className="bg-brand-dark">
-      {/* Gold divider */}
       <div className="gold-divider" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-20">
+        {/* Mobile: single centered column. Desktop: 3 columns */}
+        <div className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left md:justify-between gap-10 md:gap-8">
           {/* Brand */}
-          <div className="text-center md:text-left">
-            <div className="flex items-center gap-3 justify-center md:justify-start mb-4">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-brand-gold/30">
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="relative w-9 h-9 rounded-full overflow-hidden border border-brand-gold/30">
                 <Image
                   src="/images/NDSocial/logoAV.jpeg"
                   alt="A&V Suplementos"
@@ -41,42 +32,19 @@ export default function Footer() {
                   className="object-cover"
                 />
               </div>
-              <span className="text-xl font-bold">
-                <span className="text-gradient-gold">A&V</span>{" "}
+              <span className="text-lg font-bold">
+                <span className="text-brand-gold">A&V</span>{" "}
                 <span className="text-brand-light">Suplementos</span>
               </span>
             </div>
-            <p className="text-brand-silver-dark text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+            <p className="text-brand-silver-dark text-sm leading-relaxed max-w-xs">
               Suplementos deportivos originales con asesoramiento personalizado.
-              Tu confianza, nuestra prioridad.
             </p>
           </div>
 
-          {/* Links */}
-          <div className="text-center">
-            <h4 className="text-brand-light font-bold text-sm uppercase tracking-wider mb-4">
-              Navegación
-            </h4>
-            <ul className="space-y-2">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-brand-silver-dark text-sm hover:text-brand-gold transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div className="text-center md:text-right">
-            <h4 className="text-brand-light font-bold text-sm uppercase tracking-wider mb-4">
-              Redes
-            </h4>
-            <div className="flex gap-3 justify-center md:justify-end">
+          {/* Social + WhatsApp */}
+          <div className="flex flex-col items-center md:items-end gap-4">
+            <div className="flex gap-3">
               <a
                 href="https://instagram.com/suplementos.av"
                 target="_blank"
@@ -99,15 +67,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-brand-gold/10 text-center">
-          <p className="text-brand-silver-dark text-sm">
-            &copy; {new Date().getFullYear()} A&V Suplementos. Todos los
-            derechos reservados.
+        {/* Bottom */}
+        <div className="mt-8 pt-6 border-t border-brand-gold/10 text-center">
+          <p className="text-brand-silver-dark/60 text-xs sm:text-sm">
+            &copy; {new Date().getFullYear()} A&V Suplementos. Todos los derechos reservados.
           </p>
         </div>
       </div>
-
     </footer>
   );
 }
