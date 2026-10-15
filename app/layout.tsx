@@ -27,22 +27,61 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://avsuplementos.vercel.app"),
-  title: "A&V Suplementos — Tu mejor versión empieza acá",
-  description:
-    "Suplementos deportivos originales: creatinas, proteínas, pre-entrenos y más. Envíos a todo el país. Asesoramiento personalizado.",
-  icons: {
-    icon: "/images/NDSocial/logoAV.jpeg",
-    apple: "/images/NDSocial/logoAV.jpeg",
+  title: {
+    default: "A&V Suplementos | Suplementos deportivos originales",
+    template: "%s | A&V Suplementos",
   },
+  description:
+    "Suplementos deportivos originales: proteínas, creatinas, combos exclusivos. Asesoramiento personalizado y envíos a todo el país.",
+  keywords: [
+    "suplementos",
+    "proteínas",
+    "creatina",
+    "pre-entreno",
+    "suplementos deportivos",
+    "Mendoza",
+    "Tunuyán",
+  ],
   openGraph: {
-    title: "A&V Suplementos",
+    title: "A&V Suplementos | Suplementos deportivos originales",
     description:
-      "Suplementos deportivos originales. Creatinas, proteínas, pre-entrenos y más.",
-    images: ["/images/NDSocial/logoAV.jpeg"],
+      "Proteínas, creatinas, combos exclusivos. Asesoramiento y envíos a todo el país.",
     url: "/",
     siteName: "A&V Suplementos",
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "A&V Suplementos | Suplementos deportivos originales",
+    description:
+      "Proteínas, creatinas, combos exclusivos. Asesoramiento y envíos a todo el país.",
+  },
+  other: {
+    "theme-color": "#0A0A0A",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Store",
+  name: "A&V Suplementos",
+  url: "https://avsuplementos.vercel.app",
+  logo: "https://avsuplementos.vercel.app/icon.png",
+  description:
+    "Suplementos deportivos originales: proteínas, creatinas, combos exclusivos. Asesoramiento personalizado y envíos a todo el país.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Tunuyán",
+    addressRegion: "Mendoza",
+    addressCountry: "AR",
+  },
+  sameAs: ["https://instagram.com/suplementos.av"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+54-9-262-254-3956",
+    contactType: "sales",
+    availableLanguage: "Spanish",
   },
 };
 
@@ -54,6 +93,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${barlow.variable}`}>
       <body className="grain">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <a href="#main-content" className="skip-link">
           saltar al contenido
         </a>
