@@ -26,7 +26,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://avsuplementos.vercel.app"),
+  metadataBase: new URL("https://av-suplementos.vercel.app"),
   title: {
     default: "A&V Suplementos | Suplementos deportivos originales",
     template: "%s | A&V Suplementos",
@@ -66,8 +66,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Store",
   name: "A&V Suplementos",
-  url: "https://avsuplementos.vercel.app",
-  logo: "https://avsuplementos.vercel.app/icon.png",
+  url: "https://av-suplementos.vercel.app",
+  logo: "https://av-suplementos.vercel.app/icon.png",
   description:
     "Suplementos deportivos originales: proteínas, creatinas, combos exclusivos. Asesoramiento personalizado y envíos a todo el país.",
   address: {
