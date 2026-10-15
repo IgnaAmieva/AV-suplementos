@@ -132,6 +132,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/whey-gold-standard-15lbs-optimum.webp",
     marca: "Optimum Nutrition",
+    sabores: ["Double Rich Chocolate", "Strawberries and Cream", "Vanilla Cream"],
   },
   {
     id: "whey-gourmet-series-optimum",
@@ -140,6 +141,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/whey-gourmet-series-optimum.webp",
     marca: "Optimum Nutrition",
+    sabores: ["Chocolate Blanco", "Cookies and Cream", "Vainilla"],
   },
   {
     id: "whey-protein-2lb-gold",
@@ -148,6 +150,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/whey-protein-2lb-gold.webp",
     marca: "Gold Nutrition",
+    sabores: ["Chocolate", "Strawberry", "Vainilla"],
   },
   {
     id: "mutant-mass-15kg-star",
@@ -156,6 +159,7 @@ export const productos: Producto[] = [
     categoria: "proteinas",
     image: "/images/proteinas/mutant-mass-15kg-star.webp",
     marca: "Star Nutrition",
+    sabores: ["Chocolate", "Vainilla"],
   },
 
   // ── Pre-Entreno ──
@@ -389,6 +393,7 @@ export const productos: Producto[] = [
     categoria: "energia",
     image: "/images/energia/gel-ei-energetico-cafeina-x6u.webp",
     marca: "Ei",
+    sabores: ["Mango", "Maracuyá"],
   },
   {
     id: "gel-ei50-maltodextrina-fructosa-x6u",
@@ -397,6 +402,7 @@ export const productos: Producto[] = [
     categoria: "energia",
     image: "/images/energia/gel-ei50-maltodextrina-fructosa-x6u.webp",
     marca: "Ei",
+    sabores: ["Neutro", "Kiwi"],
   },
 
   // ── Pancakes & Keto ──
@@ -508,6 +514,7 @@ export const productos: Producto[] = [
     categoria: "colageno",
     image: "/images/colageno/colageno-plus-360g-star.webp",
     marca: "Star Nutrition",
+    sabores: ["Naranja", "Limón"],
   },
 
   // ── Proteínas ──
@@ -523,11 +530,12 @@ export const productos: Producto[] = [
   // ── Varios ──
   {
     id: "citrato-magnesio-500g-star",
-    nombre: "Citrato de Magnesio 500g Neutro",
+    nombre: "Citrato de Magnesio 500g",
     precio: 30000,
     categoria: "varios",
     image: "/images/varios/citrato-magnesio-500g-star.webp",
     marca: "Star Nutrition",
+    sabores: ["Frutos rojos", "Neutro"],
   },
   {
     id: "citrato-magnesio-60cap-star",
