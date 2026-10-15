@@ -11,6 +11,9 @@ import {
   CupSoda,
   Droplets,
   Cookie,
+  Flame,
+  Pill,
+  Shirt,
 } from "lucide-react";
 import { categorias as allCategorias } from "@/data/productos";
 
@@ -22,8 +25,10 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   aminoacidos: <Atom size={26} strokeWidth={2.5} />,
   shakers: <CupSoda size={26} strokeWidth={2.5} />,
   hidratantes: <Droplets size={26} strokeWidth={2.5} />,
-  gel: <Zap size={26} strokeWidth={2.5} />,
   "pancakes-keto": <Cookie size={26} strokeWidth={2.5} />,
+  energia: <Flame size={26} strokeWidth={2.5} />,
+  varios: <Pill size={26} strokeWidth={2.5} />,
+  indumentaria: <Shirt size={26} strokeWidth={2.5} />,
 };
 
 const categorias = allCategorias.filter((c) => c.slug !== "combos");
@@ -63,8 +68,6 @@ export default function Productos({ onSelectCategoria }: ProductosProps) {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const isOdd = categorias.length % 2 !== 0;
-
   return (
     <section id="productos" className="py-24 lg:py-32 bg-brand-black">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
@@ -82,30 +85,21 @@ export default function Productos({ onSelectCategoria }: ProductosProps) {
         </FadeIn>
 
         <div className="grid grid-cols-2 gap-4 lg:gap-5">
-          {categorias.map((cat, i) => {
-            const isLast = i === categorias.length - 1 && isOdd;
-            return (
-              <FadeIn
-                key={cat.slug}
-                delay={i * 0.08}
-                className={isLast ? "col-span-2 flex justify-center" : ""}
+          {categorias.map((cat, i) => (
+            <FadeIn key={cat.slug} delay={i * 0.08} className="flex">
+              <button
+                onClick={() => handleClick(cat.slug)}
+                className="group w-full bg-brand-dark border border-brand-gold/10 rounded-2xl p-6 lg:p-8 text-center transition-all duration-300 hover:border-brand-gold/40 hover:shadow-[0_0_20px_rgba(201,162,39,0.1)] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-offset-2 focus:ring-offset-brand-black flex flex-col items-center justify-center min-h-[140px]"
               >
-                <button
-                  onClick={() => handleClick(cat.slug)}
-                  className={`group bg-brand-dark border border-brand-gold/10 rounded-2xl p-6 lg:p-8 text-center transition-all duration-300 hover:border-brand-gold/40 hover:shadow-[0_0_20px_rgba(201,162,39,0.1)] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-offset-2 focus:ring-offset-brand-black ${
-                    isLast ? "w-full max-w-[calc(50%-0.5rem)]" : "w-full"
-                  }`}
-                >
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-brand-gold flex items-center justify-center text-brand-black shadow-[0_0_16px_rgba(201,162,39,0.3)]">
-                    {CATEGORY_ICONS[cat.slug]}
-                  </div>
-                  <h3 className="text-brand-light font-bold text-sm lg:text-base group-hover:text-brand-gold transition-colors">
-                    {cat.nombre}
-                  </h3>
-                </button>
-              </FadeIn>
-            );
-          })}
+                <div className="w-14 h-14 rounded-full bg-brand-gold flex items-center justify-center text-brand-black shadow-[0_0_16px_rgba(201,162,39,0.3)] mb-4">
+                  {CATEGORY_ICONS[cat.slug]}
+                </div>
+                <h3 className="text-brand-light font-bold text-sm lg:text-base group-hover:text-brand-gold transition-colors min-h-[2.5rem] flex items-center">
+                  {cat.nombre}
+                </h3>
+              </button>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

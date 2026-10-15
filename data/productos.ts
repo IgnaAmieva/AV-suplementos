@@ -22,8 +22,10 @@ export const categorias: Categoria[] = [
   { slug: "shakers", nombre: "Shakers" },
   { slug: "hidratantes", nombre: "Hidratantes" },
   { slug: "combos", nombre: "Combos" },
-  { slug: "gel", nombre: "Gel" },
   { slug: "pancakes-keto", nombre: "Pancakes & Keto" },
+  { slug: "energia", nombre: "Geles y Energía" },
+  { slug: "varios", nombre: "Varios" },
+  { slug: "indumentaria", nombre: "Indumentaria" },
 ];
 
 export const productos: Producto[] = [
@@ -81,7 +83,7 @@ export const productos: Producto[] = [
   {
     id: "whey-doypack-2lb-star",
     nombre: "Proteína Star 1kg Star Nutrition",
-    precio: 87500,
+    precio: 94500,
     categoria: "proteinas",
     image: "/images/proteinas/whey-doypack-2lb-star.jpeg",
     marca: "Star Nutrition",
@@ -90,7 +92,7 @@ export const productos: Producto[] = [
   {
     id: "whey-platinum-3kg",
     nombre: "Whey Protein Platinum 3kg",
-    precio: 291000,
+    precio: 304000,
     categoria: "proteinas",
     image: "/images/proteinas/whey-platinum-3kg.jpeg",
     marca: "Star Nutrition",
@@ -99,7 +101,7 @@ export const productos: Producto[] = [
   {
     id: "syntha6-14lbs-bsn",
     nombre: "Syntha-6 1,4 lbs",
-    precio: 92500,
+    precio: 110500,
     categoria: "proteinas",
     image: "/images/proteinas/syntha6-14lbs-bsn.webp",
     marca: "BSN",
@@ -108,7 +110,7 @@ export const productos: Producto[] = [
   {
     id: "whey-syntha6-edge-23lbs",
     nombre: "Syntha-6 Edge 2,3 lbs",
-    precio: 153000,
+    precio: 182500,
     categoria: "proteinas",
     image: "/images/proteinas/whey-syntha6-edge-23lbs.webp",
     marca: "BSN",
@@ -117,11 +119,43 @@ export const productos: Producto[] = [
   {
     id: "whey-syntha6-5lb-bsn",
     nombre: "Syntha-6 5 lbs",
-    precio: 263000,
+    precio: 302500,
     categoria: "proteinas",
     image: "/images/proteinas/whey-syntha6-5lb-bsn.webp",
     marca: "BSN",
     sabores: ["Chocolate", "Vainilla"],
+  },
+  {
+    id: "whey-gold-standard-15lbs-optimum",
+    nombre: "Whey Gold Standard 1.5 Lbs",
+    precio: 114000,
+    categoria: "proteinas",
+    image: "/images/proteinas/whey-gold-standard-15lbs-optimum.webp",
+    marca: "Optimum Nutrition",
+  },
+  {
+    id: "whey-gourmet-series-optimum",
+    nombre: "Whey Gourmet Series",
+    precio: 152500,
+    categoria: "proteinas",
+    image: "/images/proteinas/whey-gourmet-series-optimum.webp",
+    marca: "Optimum Nutrition",
+  },
+  {
+    id: "whey-protein-2lb-gold",
+    nombre: "Whey Protein 2 Lb",
+    precio: 79000,
+    categoria: "proteinas",
+    image: "/images/proteinas/whey-protein-2lb-gold.webp",
+    marca: "Gold Nutrition",
+  },
+  {
+    id: "mutant-mass-15kg-star",
+    nombre: "Mutant Mass Doy Pack 1.5kg",
+    precio: 68000,
+    categoria: "proteinas",
+    image: "/images/proteinas/mutant-mass-15kg-star.webp",
+    marca: "Star Nutrition",
   },
 
   // ── Pre-Entreno ──
@@ -243,6 +277,14 @@ export const productos: Producto[] = [
     image: "/images/shakers/shaker-everlast-700ml.webp",
     marca: "Everlast",
   },
+  {
+    id: "shaker-everlast-610ml",
+    nombre: "Shaker Everlast 610ml",
+    precio: 20000,
+    categoria: "shakers",
+    image: "/images/shakers/shaker-everlast-610ml.webp",
+    marca: "Everlast",
+  },
 
   // ── Hidratantes ──
   {
@@ -266,7 +308,7 @@ export const productos: Producto[] = [
   {
     id: "combo-proteina-crea-150",
     nombre: "Proteína Star 1kg + Creatina Star 150gr",
-    precio: 100000,
+    precio: 106000,
     categoria: "combos",
     image: "/images/combos/proteina-crea-150.webp",
     marca: "Star Nutrition",
@@ -274,7 +316,7 @@ export const productos: Producto[] = [
   {
     id: "combo-proteina-crea-300",
     nombre: "Proteína Star 1kg + Creatina Star 300gr",
-    precio: 110000,
+    precio: 116000,
     categoria: "combos",
     image: "/images/combos/proteina-crea-300.webp",
     marca: "Star Nutrition",
@@ -282,18 +324,42 @@ export const productos: Producto[] = [
   {
     id: "combo-proteina-crea-1kg",
     nombre: "Proteína Star 1kg + Creatina Star 1kg",
-    precio: 158000,
+    precio: 164000,
     categoria: "combos",
     image: "/images/combos/proteina-crea-1kg.webp",
     marca: "Star Nutrition",
   },
+  {
+    id: "combo-remera-crea-300",
+    nombre: "Remera A&V + Creatina 300g",
+    precio: 50000,
+    categoria: "combos",
+    image: "/images/combos/remera-creatina-300g.webp",
+    marca: "A&V Suplementos",
+  },
+  {
+    id: "combo-remera-crea-150",
+    nombre: "Remera A&V + Creatina 150g",
+    precio: 42000,
+    categoria: "combos",
+    image: "/images/combos/remera-creatina-150g.webp", // TODO: foto combo 150g
+    marca: "A&V Suplementos",
+  },
+  {
+    id: "combo-remera-shaker",
+    nombre: "Remera A&V + Shaker Everlast 610ml",
+    precio: 37500,
+    categoria: "combos",
+    image: "/images/combos/remera-shaker-610ml.webp",
+    marca: "A&V Suplementos",
+  },
 
-  // ── Gel ──
+  // ── Geles y Energía ──
   {
     id: "gel-mervick-suelto",
     nombre: "Gel Race Mervick Repositor Energético Running Gym",
     precio: 2500,
-    categoria: "gel",
+    categoria: "energia",
     image: "/images/varios/gel-mervick-suelto.webp",
     marca: "Mervick",
     sabores: ["Frutos Rojos", "Limón"],
@@ -302,10 +368,35 @@ export const productos: Producto[] = [
     id: "gel-mervick-pack-12",
     nombre: "Gel Race Mervick Repositor Energético Running Gym Pack x12",
     precio: 27600,
-    categoria: "gel",
+    categoria: "energia",
     image: "/images/varios/gel-mervick-pack-12.webp",
     marca: "Mervick",
     sabores: ["Frutos Rojos", "Limón"],
+  },
+
+  {
+    id: "ei45-maltodextrina-fructosa-x12u",
+    nombre: "Ei45 Maltodextrina Fructosa 1-0.8 Sabor Neutro Caja x12u",
+    precio: 24500,
+    categoria: "energia",
+    image: "/images/energia/ei45-maltodextrina-fructosa-x12u.webp",
+    marca: "Ei",
+  },
+  {
+    id: "gel-ei-energetico-cafeina-x6u",
+    nombre: "Gel Ei Energético con Cafeína x6u",
+    precio: 34000,
+    categoria: "energia",
+    image: "/images/energia/gel-ei-energetico-cafeina-x6u.webp",
+    marca: "Ei",
+  },
+  {
+    id: "gel-ei50-maltodextrina-fructosa-x6u",
+    nombre: "Gel Ei50 Maltodextrina Fructosa Caja x6u",
+    precio: 34000,
+    categoria: "energia",
+    image: "/images/energia/gel-ei50-maltodextrina-fructosa-x6u.webp",
+    marca: "Ei",
   },
 
   // ── Pancakes & Keto ──
@@ -397,6 +488,80 @@ export const productos: Producto[] = [
     categoria: "pancakes-keto",
     image: "/images/pancakes-keto/pancakes-proteicos-dulce-leche.png",
     marca: "Granger",
+  },
+
+  // ── Creatinas (Gold Nutrition) ──
+  {
+    id: "crea-300-gold",
+    nombre: "Creatina 300g",
+    precio: 26000,
+    categoria: "creatinas",
+    image: "/images/creatinas/creatina-300g-gold.webp",
+    marca: "Gold Nutrition",
+  },
+
+  // ── Colágeno ──
+  {
+    id: "colageno-plus-360g-star",
+    nombre: "Colágeno Plus 360g",
+    precio: 26000,
+    categoria: "colageno",
+    image: "/images/colageno/colageno-plus-360g-star.webp",
+    marca: "Star Nutrition",
+  },
+
+  // ── Proteínas ──
+  {
+    id: "just-whey-2lb-sin-sabor-star",
+    nombre: "Just Whey 2 Lb Sin Sabor",
+    precio: 102000,
+    categoria: "proteinas",
+    image: "/images/proteinas/just-whey-2lb-sin-sabor-star.webp",
+    marca: "Star Nutrition",
+  },
+
+  // ── Varios ──
+  {
+    id: "citrato-magnesio-500g-star",
+    nombre: "Citrato de Magnesio 500g Neutro",
+    precio: 30000,
+    categoria: "varios",
+    image: "/images/varios/citrato-magnesio-500g-star.webp",
+    marca: "Star Nutrition",
+  },
+  {
+    id: "citrato-magnesio-60cap-star",
+    nombre: "Citrato de Magnesio x60 Caps",
+    precio: 14000,
+    categoria: "varios",
+    image: "/images/varios/citrato-magnesio-60cap-star.webp",
+    marca: "Star Nutrition",
+  },
+  {
+    id: "omega3-fish-oil-30cap-gold",
+    nombre: "Omega 3 Fish Oil x30 Caps",
+    precio: 28500,
+    categoria: "varios",
+    image: "/images/varios/omega3-fish-oil-30cap-gold.webp",
+    marca: "Gold Nutrition",
+  },
+  {
+    id: "omega3-fish-oil-60cap-star",
+    nombre: "Omega 3 Fish Oil x60 Caps",
+    precio: 32500,
+    categoria: "varios",
+    image: "/images/varios/omega3-fish-oil-60cap-star.webp",
+    marca: "Star Nutrition",
+  },
+
+  // ── Indumentaria ──
+  {
+    id: "remera-av",
+    nombre: "Remera A&V",
+    precio: 30000,
+    categoria: "indumentaria",
+    image: "/images/indumentaria/remera-av.webp",
+    marca: "A&V Suplementos",
   },
 ];
 
