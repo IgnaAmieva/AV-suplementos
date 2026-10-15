@@ -1,33 +1,24 @@
-"use client";
-
-import { useState } from "react";
 import Hero from "@/components/Hero";
-import Productos from "@/components/Productos";
-import Nosotros from "@/components/Nosotros";
+import Marquee from "@/components/Marquee";
 import Combos from "@/components/Combos";
-import Tienda from "@/components/Tienda";
+import TiendaSection from "@/components/TiendaSection";
+import Nosotros from "@/components/Nosotros";
 import Galeria from "@/components/Galeria";
-import NDSocial from "@/components/NDSocial";
 import Contacto from "@/components/Contacto";
+import NDSocial from "@/components/NDSocial";
 import Footer from "@/components/Footer";
-import { categorias } from "@/data/productos";
 
 export default function Home() {
-  const [categoriaActiva, setCategoriaActiva] = useState(categorias[0].slug);
-
   return (
     <>
       <Hero />
-      <Productos onSelectCategoria={setCategoriaActiva} />
-      <Nosotros />
+      <Marquee />
       <Combos />
-      <Tienda
-        categoriaActiva={categoriaActiva}
-        onCategoriaChange={setCategoriaActiva}
-      />
+      <TiendaSection />
+      <Nosotros />
       <Galeria />
-      <NDSocial />
       <Contacto />
+      <NDSocial />
       <Footer />
     </>
   );

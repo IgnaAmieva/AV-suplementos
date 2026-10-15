@@ -43,7 +43,7 @@ export const productos: Producto[] = [
     nombre: "Creatina 300g Doy Pack",
     precio: 26000,
     categoria: "creatinas",
-    image: "/images/creatinas/crea-300-pote-star.png",
+    image: "/images/creatinas/crea-300-pote-star.webp",
     marca: "Star Nutrition",
   },
   {
@@ -51,7 +51,7 @@ export const productos: Producto[] = [
     nombre: "Creatina 500g",
     precio: 41500,
     categoria: "creatinas",
-    image: "/images/creatinas/crea-500-star.jpeg",
+    image: "/images/creatinas/crea-500-star.webp",
     marca: "Star Nutrition",
   },
   {
@@ -59,7 +59,7 @@ export const productos: Producto[] = [
     nombre: "Creatina 1kg",
     precio: 75500,
     categoria: "creatinas",
-    image: "/images/creatinas/crea-1kg-star.jpeg",
+    image: "/images/creatinas/crea-1kg-star.webp",
     marca: "Star Nutrition",
   },
   {
@@ -85,7 +85,7 @@ export const productos: Producto[] = [
     nombre: "Proteína Star 1kg Star Nutrition",
     precio: 94500,
     categoria: "proteinas",
-    image: "/images/proteinas/whey-doypack-2lb-star.jpeg",
+    image: "/images/proteinas/whey-doypack-2lb-star.webp",
     marca: "Star Nutrition",
     sabores: ["Cookies and Cream", "Chocolate", "Vainilla", "Frutilla"],
   },
@@ -94,7 +94,7 @@ export const productos: Producto[] = [
     nombre: "Whey Protein Platinum 3kg",
     precio: 304000,
     categoria: "proteinas",
-    image: "/images/proteinas/whey-platinum-3kg.jpeg",
+    image: "/images/proteinas/whey-platinum-3kg.webp",
     marca: "Star Nutrition",
     sabores: ["Cookies and Cream", "Chocolate", "Vainilla", "Frutilla"],
   },
@@ -198,7 +198,7 @@ export const productos: Producto[] = [
     nombre: "Colágeno Hidrolizado 210g Frutos Rojos",
     precio: 22000,
     categoria: "colageno",
-    image: "/images/colageno/colageno-210g-frutos-rojos.png",
+    image: "/images/colageno/colageno-210g-frutos-rojos.webp",
     marca: "Star Nutrition",
   },
   {
@@ -224,7 +224,7 @@ export const productos: Producto[] = [
     nombre: "Amino Energy 270g",
     precio: 78000,
     categoria: "aminoacidos",
-    image: "/images/aminoacidos/amino-energy-270g-optimun.png",
+    image: "/images/aminoacidos/amino-energy-270g-optimun.webp",
     marca: "Optimum Nutrition",
   },
   {
@@ -240,7 +240,7 @@ export const productos: Producto[] = [
     nombre: "EAA Essential Aminos 360g Limón",
     precio: 42000,
     categoria: "aminoacidos",
-    image: "/images/aminoacidos/eaa-essential-360g-limon.png",
+    image: "/images/aminoacidos/eaa-essential-360g-limon.webp",
     marca: "Star Nutrition",
   },
   {
@@ -292,7 +292,7 @@ export const productos: Producto[] = [
     nombre: "Just Carbs 1kg",
     precio: 20000,
     categoria: "hidratantes",
-    image: "/images/hidratantes/just-carbs-1kg-star.png",
+    image: "/images/hidratantes/just-carbs-1kg-star.webp",
     marca: "Star Nutrition",
   },
   {
@@ -405,7 +405,7 @@ export const productos: Producto[] = [
     nombre: "Keto Cupcakes Chocolate Granger",
     precio: 14500,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/keto-cupcakes-chocolate.png",
+    image: "/images/pancakes-keto/keto-cupcakes-chocolate.webp",
     marca: "Granger",
   },
   {
@@ -413,7 +413,7 @@ export const productos: Producto[] = [
     nombre: "Cupcakes Proteicos Vainilla Limón con Chips Granger",
     precio: 16000,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/cupcakes-proteicos-vainilla-limon.png",
+    image: "/images/pancakes-keto/cupcakes-proteicos-vainilla-limon.webp",
     marca: "Granger",
   },
   {
@@ -421,7 +421,7 @@ export const productos: Producto[] = [
     nombre: "Keto Cupcakes Vainilla Granger",
     precio: 14500,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/keto-cupcakes-vainilla.png",
+    image: "/images/pancakes-keto/keto-cupcakes-vainilla.webp",
     marca: "Granger",
   },
   {
@@ -437,7 +437,7 @@ export const productos: Producto[] = [
     nombre: "Keto Pancakes Vainilla 200g Granger",
     precio: 14500,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/keto-pancakes-vainilla.png",
+    image: "/images/pancakes-keto/keto-pancakes-vainilla.webp",
     marca: "Granger",
   },
   {
@@ -445,7 +445,7 @@ export const productos: Producto[] = [
     nombre: "Pancakes Proteicos 300g Jalapeño y Limón Granger",
     precio: 16000,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/pancakes-proteicos-jalapeno-limon.png",
+    image: "/images/pancakes-keto/pancakes-proteicos-jalapeno-limon.webp",
     marca: "Granger",
   },
   {
@@ -453,7 +453,7 @@ export const productos: Producto[] = [
     nombre: "Cupcakes Proteicos 360g Granger",
     precio: 16000,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/cupcakes-proteicos-360g.png",
+    image: "/images/pancakes-keto/cupcakes-proteicos-360g.webp",
     marca: "Granger",
   },
   {
@@ -461,7 +461,7 @@ export const productos: Producto[] = [
     nombre: "Pancakes Proteicos 400g Chocolate y Vainilla Granger",
     precio: 16000,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/pancakes-proteicos-chocolate-vainilla.png",
+    image: "/images/pancakes-keto/pancakes-proteicos-chocolate-vainilla.webp",
     marca: "Granger",
     sabores: ["Chocolate", "Vainilla"],
   },
@@ -470,7 +470,7 @@ export const productos: Producto[] = [
     nombre: "Pancakes Proteicos Caprese 300g Granger",
     precio: 16000,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/pancakes-proteicos-caprese.png",
+    image: "/images/pancakes-keto/pancakes-proteicos-caprese.webp",
     marca: "Granger",
   },
   {
@@ -486,7 +486,7 @@ export const productos: Producto[] = [
     nombre: "Pancakes Proteicos 300g Dulce de Leche Granger",
     precio: 16000,
     categoria: "pancakes-keto",
-    image: "/images/pancakes-keto/pancakes-proteicos-dulce-leche.png",
+    image: "/images/pancakes-keto/pancakes-proteicos-dulce-leche.webp",
     marca: "Granger",
   },
 

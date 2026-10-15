@@ -18,50 +18,29 @@ import {
 import { categorias as allCategorias } from "@/data/productos";
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
-  creatinas: <FlaskConical size={26} strokeWidth={2.5} />,
-  proteinas: <Dumbbell size={26} strokeWidth={2.5} />,
-  preentreno: <Zap size={26} strokeWidth={2.5} />,
-  colageno: <Sparkles size={26} strokeWidth={2.5} />,
-  aminoacidos: <Atom size={26} strokeWidth={2.5} />,
-  shakers: <CupSoda size={26} strokeWidth={2.5} />,
-  hidratantes: <Droplets size={26} strokeWidth={2.5} />,
-  "pancakes-keto": <Cookie size={26} strokeWidth={2.5} />,
-  energia: <Flame size={26} strokeWidth={2.5} />,
-  varios: <Pill size={26} strokeWidth={2.5} />,
-  indumentaria: <Shirt size={26} strokeWidth={2.5} />,
+  creatinas: <FlaskConical size={20} strokeWidth={2.5} />,
+  proteinas: <Dumbbell size={20} strokeWidth={2.5} />,
+  preentreno: <Zap size={20} strokeWidth={2.5} />,
+  colageno: <Sparkles size={20} strokeWidth={2.5} />,
+  aminoacidos: <Atom size={20} strokeWidth={2.5} />,
+  shakers: <CupSoda size={20} strokeWidth={2.5} />,
+  hidratantes: <Droplets size={20} strokeWidth={2.5} />,
+  "pancakes-keto": <Cookie size={20} strokeWidth={2.5} />,
+  energia: <Flame size={20} strokeWidth={2.5} />,
+  varios: <Pill size={20} strokeWidth={2.5} />,
+  indumentaria: <Shirt size={20} strokeWidth={2.5} />,
 };
 
 const categorias = allCategorias.filter((c) => c.slug !== "combos");
-
-function FadeIn({
-  children,
-  className = "",
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: "easeOut" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 interface ProductosProps {
   onSelectCategoria: (slug: string) => void;
 }
 
 export default function Productos({ onSelectCategoria }: ProductosProps) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
   const handleClick = (slug: string) => {
     onSelectCategoria(slug);
     const el = document.getElementById("tienda");
@@ -69,38 +48,59 @@ export default function Productos({ onSelectCategoria }: ProductosProps) {
   };
 
   return (
-    <section id="productos" className="py-24 lg:py-32 bg-brand-black">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <p className="text-brand-gold text-sm tracking-[0.2em] uppercase font-semibold mb-3">
-              Categorías
-            </p>
-            <h2 className="text-4xl lg:text-5xl font-extrabold">
-              Nuestros{" "}
-              <span className="text-gradient-gold">productos</span>
-            </h2>
-            <div className="w-16 mx-auto mt-4 gold-divider" />
-          </div>
-        </FadeIn>
+    <section id="productos" className="relative py-16 sm:py-24 lg:py-32 bg-brand-dark">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6" ref={ref}>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-8 sm:mb-12"
+        >
+          <p className="text-brand-gold text-sm tracking-[0.3em] uppercase font-semibold mb-3">
+            Categorías
+          </p>
+          <h2 className="heading-display text-[clamp(1.75rem,6vw,3.75rem)] text-brand-light">
+            NUESTROS{" "}
+            <span className="text-brand-gold">PRODUCTOS</span>
+          </h2>
+        </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 lg:gap-5">
-          {categorias.map((cat, i) => (
-            <FadeIn key={cat.slug} delay={i * 0.08} className="flex">
-              <button
+        {/* Mobile: 2-column grid. Desktop: flex wrap */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 sm:gap-3"
+        >
+          {categorias.map((cat, i) => {
+            const isLast = i === categorias.length - 1;
+            const isOddTotal = categorias.length % 2 !== 0;
+            return (
+              <motion.button
+                key={cat.slug}
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.35,
+                  delay: 0.2 + i * 0.04,
+                  ease: "easeOut",
+                }}
                 onClick={() => handleClick(cat.slug)}
-                className="group w-full bg-brand-dark border border-brand-gold/10 rounded-2xl p-6 lg:p-8 text-center transition-all duration-300 hover:border-brand-gold/40 hover:shadow-[0_0_20px_rgba(201,162,39,0.1)] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:ring-offset-2 focus:ring-offset-brand-black flex flex-col items-center justify-center min-h-[140px]"
+                className={`group flex items-center justify-start gap-2 px-4 py-3 min-h-[48px] rounded-xl sm:rounded-full border border-brand-gold/20 bg-brand-black/50 text-brand-silver hover:border-brand-gold hover:text-brand-gold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 ${
+                  isLast && isOddTotal ? "col-span-2 sm:col-span-1" : ""
+                }`}
               >
-                <div className="w-14 h-14 rounded-full bg-brand-gold flex items-center justify-center text-brand-black shadow-[0_0_16px_rgba(201,162,39,0.3)] mb-4">
+                <span className="text-brand-gold/60 group-hover:text-brand-gold transition-colors flex-shrink-0">
                   {CATEGORY_ICONS[cat.slug]}
-                </div>
-                <h3 className="text-brand-light font-bold text-sm lg:text-base group-hover:text-brand-gold transition-colors min-h-[2.5rem] flex items-center">
+                </span>
+                <span className="text-sm font-semibold whitespace-nowrap">
                   {cat.nombre}
-                </h3>
-              </button>
-            </FadeIn>
-          ))}
-        </div>
+                </span>
+              </motion.button>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
