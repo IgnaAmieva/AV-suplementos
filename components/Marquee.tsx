@@ -3,16 +3,14 @@
 import { useRef, useEffect, useState } from "react";
 
 const BRANDS = [
-  { name: "STAR NUTRITION", gold: false },
-  { name: "GOLD NUTRITION", gold: true },
-  { name: "OPTIMUM NUTRITION", gold: false },
-  { name: "BSN", gold: false },
-  { name: "EI", gold: true },
-  { name: "MERVICK", gold: false },
-  { name: "EVERLAST", gold: false },
+  "Star Nutrition",
+  "Gold Nutrition",
+  "Optimum Nutrition",
+  "BSN",
+  "Ei",
+  "Mervick",
+  "Everlast",
 ];
-
-const SEPARATOR = "✦";
 
 export default function Marquee() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -27,62 +25,51 @@ export default function Marquee() {
     setIsPointerFine(window.matchMedia("(pointer: fine)").matches);
   }, []);
 
-  // Build the repeated content — we duplicate 3x for seamless loop
+  // Duplicate 3x for seamless loop
   const items = [...BRANDS, ...BRANDS, ...BRANDS];
 
   return (
-    <section
-      aria-label="Marcas disponibles"
-      className="relative py-6 sm:py-10 lg:py-14 bg-brand-black overflow-hidden border-y border-brand-gold/10"
+    <div
+      className="bg-brand-gold text-brand-black overflow-hidden border-y-2 border-brand-black"
+      aria-hidden="true"
     >
-      {/* Static fallback for reduced motion */}
       {prefersReduced ? (
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 max-w-5xl mx-auto px-4">
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 py-[10px] px-4">
           {BRANDS.map((brand) => (
             <span
-              key={brand.name}
-              className={`font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-3xl uppercase tracking-wide ${
-                brand.gold
-                  ? "text-brand-gold"
-                  : "text-transparent [-webkit-text-stroke:1.5px_var(--color-brand-silver-dark)] [text-stroke:1.5px_var(--color-brand-silver-dark)]"
-              }`}
+              key={brand}
+              className="font-[family-name:var(--font-display)] font-black italic text-[clamp(24px,3.4vw,38px)] uppercase"
             >
-              {brand.name}
+              {brand}
             </span>
           ))}
         </div>
       ) : (
         <div
           ref={trackRef}
-          className="flex whitespace-nowrap animate-marquee"
-          style={{
-            animationPlayState: paused ? "paused" : "running",
-          }}
-          onMouseEnter={() => {
-            if (isPointerFine) setPaused(true);
-          }}
-          onMouseLeave={() => {
-            if (isPointerFine) setPaused(false);
-          }}
+          className="flex w-max whitespace-nowrap animate-marquee py-[10px]"
+          style={{ animationPlayState: paused ? "paused" : "running" }}
+          onMouseEnter={() => { if (isPointerFine) setPaused(true); }}
+          onMouseLeave={() => { if (isPointerFine) setPaused(false); }}
         >
           {items.map((brand, i) => (
-            <span key={`${brand.name}-${i}`} className="flex items-center">
+            <span
+              key={`${brand}-${i}`}
+              className="px-[22px] inline-flex items-center gap-[22px] font-[family-name:var(--font-display)] font-black italic text-[clamp(24px,3.4vw,38px)] uppercase"
+            >
+              {brand}
+              {/* Dot separator (like a weight plate hole) */}
               <span
-                className={`font-[family-name:var(--font-display)] font-extrabold text-2xl sm:text-4xl lg:text-6xl uppercase tracking-wide select-none ${
-                  brand.gold
-                    ? "text-brand-gold"
-                    : "text-transparent [-webkit-text-stroke:1px_var(--color-brand-silver-dark)] sm:[-webkit-text-stroke:1.5px_var(--color-brand-silver-dark)] [text-stroke:1px_var(--color-brand-silver-dark)] sm:[text-stroke:1.5px_var(--color-brand-silver-dark)]"
-                }`}
-              >
-                {brand.name}
-              </span>
-              <span className="text-brand-gold/30 text-sm sm:text-xl mx-4 sm:mx-6 lg:mx-10 select-none">
-                {SEPARATOR}
-              </span>
+                className="inline-block w-[.5em] h-[.5em] rounded-full border-[.16em] border-current"
+                style={{
+                  boxShadow: "inset 0 0 0 .08em var(--color-brand-gold), inset 0 0 0 .2em currentColor",
+                }}
+                aria-hidden="true"
+              />
             </span>
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 }

@@ -576,3 +576,23 @@ export const productos: Producto[] = [
 export function productosPorCategoria(slug: string): Producto[] {
   return productos.filter((p) => p.categoria === slug);
 }
+
+/** Bumper-plate color + abbreviation per category slug */
+export const PLATE_COLORS: Record<string, [color: string, label: string]> = {
+  creatinas:      ["#2F6FD6", "CREA"],
+  proteinas:      ["#D62E2E", "PROT"],
+  preentreno:     ["#E8B92A", "PRE"],
+  colageno:       ["#EDEDED", "COLÁG"],
+  aminoacidos:    ["#2E9E5B", "AMINO"],
+  shakers:        ["#8C8C8C", "SHAKE"],
+  hidratantes:    ["#2FB5C9", "HIDRA"],
+  combos:         ["#C9A227", "COMBO"],
+  "pancakes-keto":["#B78A5E", "KETO"],
+  energia:        ["#E8742A", "GEL"],
+  varios:         ["#8E6BD6", "MÁS"],
+  indumentaria:   ["#1A1A1A", "A&V"],
+};
+
+export function getProductById(id: string): Producto | undefined {
+  return productos.find((p) => p.id === id);
+}

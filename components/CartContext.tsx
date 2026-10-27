@@ -15,7 +15,7 @@ interface CartContextType {
   isOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
-  addItem: (item: Omit<CartItem, "quantity">) => void;
+  addItem: (item: Omit<CartItem, "quantity">, qty?: number) => void;
   removeItem: (option: string) => void;
   updateQuantity: (option: string, quantity: number) => void;
   clearCart: () => void;
@@ -32,7 +32,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const openCart = useCallback(() => setIsOpen(true), []);
   const closeCart = useCallback(() => setIsOpen(false), []);
 
-  const addItem = useCallback((item: Omit<CartItem, "quantity">) => {
+  const addItem = useCallback((item: Omit<CartItem, "quantity">, qty = 1) => {
     const key = item.sabor ? `${item.option}::${item.sabor}` : item.option;
     setItems((prev) => {
       const existing = prev.find((i) => {
@@ -42,10 +42,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (existing) {
         return prev.map((i) => {
           const iKey = i.sabor ? `${i.option}::${i.sabor}` : i.option;
-          return iKey === key ? { ...i, quantity: i.quantity + 1 } : i;
+          return iKey === key ? { ...i, quantity: i.quantity + qty } : i;
         });
       }
-      return [...prev, { ...item, quantity: 1 }];
+      return [...prev, { ...item, quantity: qty }];
     });
     setIsOpen(true);
   }, []);
