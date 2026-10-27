@@ -4,6 +4,7 @@ import { useState } from "react";
 import { X, Minus, Plus, Trash2 } from "lucide-react";
 import { useCart } from "./CartContext";
 import CheckoutModal from "./CheckoutModal";
+import BarbellBar from "./BarbellBar";
 
 export default function CartSidebar() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, total } =
@@ -33,6 +34,11 @@ export default function CartSidebar() {
               >
                 <X size={24} />
               </button>
+            </div>
+
+            {/* Barbell visualisation */}
+            <div className="px-4 py-3 border-b border-brand-gold/10">
+              <BarbellBar />
             </div>
 
             {/* Items */}
