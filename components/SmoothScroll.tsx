@@ -3,6 +3,14 @@
 import { useEffect } from "react";
 
 export default function SmoothScroll() {
+  // Force scroll to top on page load (prevent browser scroll restoration)
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     // Disable on touch devices — native scroll feels better on mobile
     const isTouch =

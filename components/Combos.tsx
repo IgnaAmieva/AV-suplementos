@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { productos } from "@/data/productos";
 import { useCart } from "./CartContext";
@@ -60,33 +59,21 @@ export default function Combos() {
                   {
                     "--r": `${r}deg`,
                     "--y": `${y}px`,
-                    transform: `rotate(var(--r)) translateY(var(--y))`,
                   } as React.CSSProperties
                 }
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : {}}
                 transition={{
                   duration: 0.5,
                   delay: 0.1 + i * 0.08,
                   ease: "easeOut",
                 }}
-                whileHover={{
-                  translateY: -8,
-                  rotate: 0,
-                  transition: { duration: 0.35 },
-                }}
               >
                 <div className="combo-ph">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={combo.image}
                     alt={combo.nombre}
-                    width={600}
-                    height={450}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
                     loading="lazy"
                   />
                 </div>
@@ -114,106 +101,6 @@ export default function Combos() {
         </div>
       </div>
 
-      <style jsx>{`
-        .sec-head {
-          display: grid;
-          gap: 12px;
-          justify-items: start;
-          margin-bottom: 36px;
-        }
-        .sec-head h2 {
-          font-size: clamp(50px, 8vw, 112px);
-        }
-        .combos-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 22px 18px;
-        }
-        .combo {
-          background: var(--color-brand-chalk, #f2f0ea);
-          color: #000;
-          border-radius: 6px;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.8);
-          cursor: pointer;
-          transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .combo-ph {
-          aspect-ratio: 4/3;
-          background: #fff;
-          overflow: hidden;
-          display: grid;
-          place-items: center;
-        }
-        .combo-ph :global(img) {
-          transition: transform 0.5s;
-        }
-        .combo:hover .combo-ph :global(img) {
-          transform: scale(1.06);
-        }
-        .combo-bd {
-          padding: 16px 18px 18px;
-          display: grid;
-          gap: 10px;
-        }
-        .combo-tag {
-          font-family: var(--font-display);
-          font-weight: 800;
-          letter-spacing: 0.18em;
-          font-size: 12px;
-          color: #8a6d10;
-          text-transform: uppercase;
-        }
-        .combo h3 {
-          font-size: 28px;
-          line-height: 0.95;
-        }
-        .combo-row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 10px;
-        }
-        .combo-pr {
-          font-family: var(--font-display);
-          font-weight: 900;
-          font-style: italic;
-          font-size: 32px;
-          font-variant-numeric: tabular-nums;
-        }
-        .combo-plus {
-          min-width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: none;
-          background: var(--color-brand-black, #0a0a0a);
-          color: var(--color-brand-gold-light, #e8c55a);
-          font-size: 26px;
-          font-weight: 700;
-          cursor: pointer;
-          display: grid;
-          place-items: center;
-          transition: background 0.2s;
-        }
-        .combo-plus:hover {
-          background: #1a1a1a;
-        }
-        @media (max-width: 900px) {
-          .combos-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 560px) {
-          .combos-grid {
-            grid-template-columns: 1fr;
-          }
-          .combo h3 {
-            font-size: 25px;
-          }
-        }
-      `}</style>
     </section>
   );
 }
