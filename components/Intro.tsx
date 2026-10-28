@@ -6,12 +6,12 @@ import Image from "next/image";
 
 export default function Intro({ onDone }: { onDone: () => void }) {
   const [visible, setVisible] = useState(true);
-  const [phase, setPhase] = useState(0); // 0=bar, 1=plates, 2=logo, 3=exit
+  const [phase, setPhase] = useState(0); // 0=bar, 1=plates, 2=logo, 3=fall, 4=exit
   const reducedMotion = useReducedMotion();
 
   const dismiss = useCallback(() => {
     if (!visible) return;
-    setPhase(3);
+    setPhase(4);
     setTimeout(() => {
       setVisible(false);
       onDone();
@@ -24,14 +24,18 @@ export default function Intro({ onDone }: { onDone: () => void }) {
       onDone();
       return;
     }
-    // Auto-sequence: bar -> plates -> logo -> wait -> exit
-    const t1 = setTimeout(() => setPhase(1), 600);
-    const t2 = setTimeout(() => setPhase(2), 1100);
-    const t3 = setTimeout(() => dismiss(), 2800);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    // Sequence: bar draws → plates slide in → logo flips → fall → pause → exit
+    const t1 = setTimeout(() => setPhase(1), 600);   // plates
+    const t2 = setTimeout(() => setPhase(2), 1050);   // logo
+    const t3 = setTimeout(() => setPhase(3), 1650);   // fall (deadweight)
+    const t4 = setTimeout(() => dismiss(), 2800);      // exit
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, [reducedMotion, onDone, dismiss]);
 
   if (!visible) return null;
+
+  // Fall effect: stage drops down and bounces like weight
+  const stageY = phase >= 3 ? 30 : phase >= 2 ? -30 : 0;
 
   return (
     <AnimatePresence>
@@ -42,7 +46,18 @@ export default function Intro({ onDone }: { onDone: () => void }) {
           exit={{ clipPath: "inset(50% 0 50% 0)" }}
           transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
         >
-          <div className="relative w-[min(560px,92vw)]" style={{ aspectRatio: "2/1" }}>
+          <motion.div
+            className="relative w-[min(560px,92vw)]"
+            style={{ aspectRatio: "2/1" }}
+            animate={{ y: stageY }}
+            transition={
+              phase === 3
+                ? { duration: 0.22, ease: [0.65, 0, 0.35, 1] }
+                : phase === 2
+                ? { duration: 0.35, ease: [0.16, 1, 0.3, 1] }
+                : { duration: 0.3 }
+            }
+          >
             {/* Barbell SVG */}
             <svg viewBox="0 0 560 280" className="absolute inset-0 w-full h-full overflow-visible">
               {/* Bar */}
@@ -90,7 +105,7 @@ export default function Intro({ onDone }: { onDone: () => void }) {
                 priority
               />
             </motion.div>
-          </div>
+          </motion.div>
 
           <div className="absolute bottom-[calc(22px+env(safe-area-inset-bottom,0px))] left-0 right-0 text-center text-xs tracking-[0.25em] uppercase text-brand-mute">
             toc&aacute; para entrar

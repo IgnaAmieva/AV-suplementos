@@ -151,13 +151,12 @@ export default function ArmaTuStack() {
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <p className="eyebrow mb-3">Personalizá</p>
+            <p className="eyebrow mb-3">Tienda &middot; Carg&aacute; la barra</p>
             <h2 className="text-[clamp(50px,8vw,112px)] text-brand-light">
-              ARM&Aacute; TU{" "}
-              <span className="text-brand-gold">STACK</span>
+              Arm&aacute; tu stack.
             </h2>
             <p className="text-brand-silver max-w-[52ch] mt-3 text-base sm:text-lg">
-              Sumá productos a la barra y armá tu pedido. Tocá un producto para elegir sabor y cantidad.
+              Elegí la categoría, sumá lo que necesites y mirá cómo se carga tu barra. Cada disco es un producto de tu pedido.
             </p>
           </motion.div>
         </div>

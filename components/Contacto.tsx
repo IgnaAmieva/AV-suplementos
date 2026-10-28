@@ -2,17 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { MessageCircle, MapPin, Clock } from "lucide-react";
-
-function InstagramIcon({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  );
-}
 
 const WHATSAPP_NUMBER = "5492622543956";
 const WHATSAPP_MESSAGE = "Hola A&V, quiero hacer una consulta";
@@ -22,66 +11,124 @@ export default function Contacto() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="contacto" className="py-16 sm:py-24 lg:py-32 bg-brand-black">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6" ref={ref}>
-        {/* Header + CTA */}
+    <section
+      className="contact sec"
+      id="contacto"
+      style={{ paddingBlock: 96, background: "var(--color-brand-gold, #C9A227)", color: "#000" }}
+    >
+      <div className="wrap contact-grid" ref={ref}>
+        {/* Left column */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-10 sm:mb-14"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-brand-gold text-sm tracking-[0.3em] uppercase font-semibold mb-3">
+          <span className="eyebrow" style={{ color: "#000" }}>
             Contacto
-          </p>
-          <h2 className="heading-display text-[clamp(1.75rem,6vw,3.75rem)] text-brand-light mb-3">
-            ESCRIBINOS{" "}
-            <span className="text-brand-gold">AHORA</span>
+          </span>
+          <h2 style={{ marginTop: 12 }}>
+            Escribinos
+            <br />
+            ahora.
           </h2>
-          <p className="text-brand-silver-dark text-sm sm:text-base max-w-md mx-auto mb-8">
+          <p className="contact-desc">
             Te asesoramos con lo que necesites. Respuesta rápida garantizada.
           </p>
-
-          {/* WhatsApp CTA — prominent */}
           <a
+            className="btn contact-btn"
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 rounded-full transition-colors min-h-[52px]"
           >
-            <MessageCircle size={22} />
             Escribinos por WhatsApp
           </a>
         </motion.div>
 
-        {/* Info — minimal row */}
+        {/* Right column — info */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          className="contact-info"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-brand-silver-dark text-sm"
         >
-          <a
-            href="https://instagram.com/suplementos.av"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-brand-gold transition-colors min-h-[44px]"
-          >
-            <InstagramIcon size={18} />
-            @suplementos.av
-          </a>
-          <span className="hidden sm:block text-brand-gold/20">·</span>
-          <span className="flex items-center gap-2 min-h-[44px]">
-            <MapPin size={16} className="text-brand-gold/60" />
-            Tunuyán, Mendoza
-          </span>
-          <span className="hidden sm:block text-brand-gold/20">·</span>
-          <span className="flex items-center gap-2 min-h-[44px]">
-            <Clock size={16} className="text-brand-gold/60" />
-            Lun a Sáb · 9 – 20hs
-          </span>
+          <div>
+            <span>WhatsApp</span>
+            <b style={{ userSelect: "all" }}>2622 54-3956</b>
+          </div>
+          <div>
+            <span>Instagram</span>
+            <a
+              href="https://instagram.com/suplementos.av"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @suplementos.av
+            </a>
+          </div>
+          <div>
+            <span>Donde</span>
+            <b>Tunuyán, Mendoza</b>
+          </div>
+          <div>
+            <span>Horario</span>
+            <b>Lun a Sáb &middot; 9 – 20 h</b>
+          </div>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        .contact h2 {
+          font-size: clamp(56px, 10vw, 140px);
+        }
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 30px;
+          align-items: end;
+        }
+        .contact-desc {
+          font-size: 18px;
+          max-width: 40ch;
+          margin: 18px 0 0;
+        }
+        .contact-btn {
+          background: var(--color-brand-black, #0a0a0a);
+          color: var(--color-brand-gold-light, #e8c55a);
+          margin-top: 24px;
+        }
+        .contact-info {
+          display: grid;
+          gap: 14px;
+          font-size: 18px;
+          font-weight: 600;
+        }
+        .contact-info div {
+          display: flex;
+          justify-content: space-between;
+          gap: 16px;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+          padding-bottom: 10px;
+        }
+        .contact-info span {
+          font-family: var(--font-display);
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          font-size: 14px;
+          font-weight: 800;
+        }
+        .contact-info a {
+          color: inherit;
+          text-decoration: none;
+        }
+        .contact-info a:hover {
+          text-decoration: underline;
+        }
+        @media (max-width: 800px) {
+          .contact-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -1,21 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Barlow_Condensed } from "next/font/google";
+import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { CartProvider } from "@/components/CartContext";
 import { Analytics } from "@vercel/analytics/next";
 import SmoothScroll from "@/components/SmoothScroll";
 import FloatingCart from "@/components/FloatingCart";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
-const inter = Inter({
+const barlow = Barlow({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const barlow = Barlow_Condensed({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["600", "700", "800", "900"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
@@ -91,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${barlow.variable}`}>
+    <html lang="es" className={`${barlow.variable} ${barlowCondensed.variable}`}>
       <body className="grain">
         <script
           type="application/ld+json"
@@ -105,6 +108,7 @@ export default function RootLayout({
           <Navbar />
           <main id="main-content">{children}</main>
           <FloatingCart />
+          <WhatsAppButton />
         </CartProvider>
         <Analytics />
       </body>

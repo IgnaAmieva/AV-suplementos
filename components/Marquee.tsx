@@ -10,6 +10,7 @@ const BRANDS = [
   "Ei",
   "Mervick",
   "Everlast",
+  "Granger",
 ];
 
 export default function Marquee() {
