@@ -26,6 +26,7 @@ const barlowCondensed = Barlow_Condensed({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#0A0A0A",
 };
 
 export const metadata: Metadata = {
@@ -53,15 +54,21 @@ export const metadata: Metadata = {
     siteName: "A&V Suplementos",
     locale: "es_AR",
     type: "website",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "A&V Suplementos — Tu mejor versión empieza acá",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "A&V Suplementos | Suplementos deportivos originales",
     description:
       "Proteínas, creatinas, combos exclusivos. Asesoramiento y envíos a todo el país.",
-  },
-  other: {
-    "theme-color": "#0A0A0A",
+    images: ["/og.jpg"],
   },
 };
 
