@@ -95,8 +95,9 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Paragraph */}
+          {/* Paragraph — hidden on mobile */}
           <motion.p
+            className="hidden md:block"
             variants={fadeUp}
             initial="hidden"
             animate="visible"

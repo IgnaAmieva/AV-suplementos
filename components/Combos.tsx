@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { productos } from "@/data/productos";
 import { useCart } from "./CartContext";
 
@@ -15,6 +15,14 @@ export default function Combos() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { addItem } = useCart();
   const [addedId, setAddedId] = useState<string | null>(null);
+  const [toast, setToast] = useState("");
+  const toastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  const showToast = useCallback((msg: string) => {
+    setToast(msg);
+    clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(""), 1800);
+  }, []);
 
   const handleAdd = (producto: (typeof combos)[0]) => {
     addItem({
@@ -23,6 +31,7 @@ export default function Combos() {
       price: producto.precio,
     });
     setAddedId(producto.id);
+    showToast(`${producto.nombre} a la barra`);
     setTimeout(() => setAddedId(null), 2000);
   };
 
@@ -101,6 +110,20 @@ export default function Combos() {
         </div>
       </div>
 
+      {/* Toast */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+            className="fixed left-1/2 -translate-x-1/2 top-[calc(80px+env(safe-area-inset-top,0px))] z-[120] bg-brand-chalk text-brand-black px-5 py-3 rounded-full font-bold shadow-xl max-w-[calc(100vw-32px)] whitespace-nowrap overflow-hidden text-ellipsis text-sm"
+          >
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

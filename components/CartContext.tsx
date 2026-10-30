@@ -47,7 +47,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...item, quantity: qty }];
     });
-    setIsOpen(true);
   }, []);
 
   const getKey = (i: CartItem) => (i.sabor ? `${i.option}::${i.sabor}` : i.option);
